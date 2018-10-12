@@ -5,6 +5,7 @@
 	width: 100%;
 	min-width: 1200px;
 	text-align: center;
+	margin-top: 30px;
 }
 .footer .about,.lien-he,.orther{
 	text-align: center;
@@ -21,13 +22,13 @@
 	float: left;
 }
 .about p{
-	margin-top: 15px;
-	text-shadow: 1px 1px 2px black;
+	margin-top: 17px;
+	text-shadow: 2px 2px 2px black;
 }
 .orther{
 	display: inline-block;
 	padding: 0 0 30px 0;
-	text-shadow: 1px 1px 2px black;
+	text-shadow: 2px 2px 2px black;
 	
 }
 .orther .logo-big{
@@ -54,7 +55,7 @@
 .copyright{
 	text-align: center;
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
-	text-shadow: 1px 1px 2px black;
+	text-shadow: 2px 2px 2px black;
 }

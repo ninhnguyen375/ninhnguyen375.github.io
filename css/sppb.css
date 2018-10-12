@@ -1,15 +1,27 @@
 .sppb-01{
-	height:201.5px;
-	width:  246px;
+	margin: 2px;
+	height: 201.5px;
+	width:  240px;
 	background: red;
 	float: left;
-	float: left;border: 1px solid white;
+	float: left;
+	transition: 0.3s;
+}
+.sppb-01:hover{
+	box-shadow: 2px 2px 5px black;
+	opacity: 0.5;
+}
+.sppb-02:hover{
+	box-shadow: 2px 2px 5px black;
+	opacity: 0.5;
 }
 .sppb-02{
-	width: 236px;
+	width: 230px;
 	height: 100px;
 	background: blue;
-	float: left;border: 1px solid white;
+	float: left;
+	margin: 2px;
+	transition: 0.3s;
 }
 .san-pham-pho-bien{
 	padding-top: 20px;
@@ -29,7 +41,7 @@
 	color: rgba(0,39,0,0.78);
 }
 .san-pham-suu-tap .sppb-02{
-	width: 298px;
+	width: 290px;
 	height: 146px;
 }
 .danh-cho-ban a{
@@ -42,7 +54,7 @@
 }
 .danh-cho-ban .sppb-02{
 	height: 325px;
-	width: 198px;
-	margin: 0;
+	width: 190px;
+	margin: 2px;
 	padding: 0;
 }

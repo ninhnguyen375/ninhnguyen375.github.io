@@ -12,12 +12,12 @@
 .header{
   height: auto;
   width: 100%;
-	background: url(../images/img/3-1.JPG);
+	background: url(../images/img/3.jpg);
 	background-size: cover;
 	background-position: center;
-/  background: rgba(0,0,0,0.80);
 	position: relative;
-	box-shadow: 2px 2px 8px black;
+	box-shadow: 2px 2px 5px black;
+	transition: 0.3s;
 }
 .search-box{
 	position: absolute;
@@ -87,6 +87,7 @@ font-weight: bold;
 	position: relative;
 	display: none;
 	margin-left: 10px;
+	transition: 0.3s;
 }
 .dropdown-btn{
 	padding: 5px;
@@ -100,33 +101,42 @@ font-weight: bold;
 	font-weight: bold;
 }
 .nav-dropdown:hover .dropdown-btn{
-	background: rgba(0,0,0,0.18);
+	background: white;
+	color: black;
+	text-shadow: none;
+	box-shadow: 2px 2px 5px black;
 }
 .nav-dropdown:hover .dropdown-content{
 	/display: none;
 	display: block;
 	position: absolute;
 	z-index: 1;
-	outline: 1px solid rgba(224,224,224,0.60);
+	border-radius:0 0 5px 5px;
+	transition: 0.3s;
+	box-shadow: 2px 2px 5px black;
 }
 .dropdown-content{
 	background: white;
 	display: none;
+	transition: 0.3s;
 }
 .dropdown-content a{
 	display: block;
-	padding: 6px 10px 6px 10px;
+	padding: 6px 11px 6px 10px;
 	text-align: left;
 	width: 150px;
 	text-decoration: none;
 	color: black;
+	transition: 0.3s;
 }
 .nav-dropdown a:hover{
 	background: rgba(237,237,237,1.00);
+	transition: 0.3s;
 }
 .ndd-right{
 	position:absolute;
 	right: 1%;
+	transition: 0.3s;
 }
 .dropdown-content span{
 	color: red;
