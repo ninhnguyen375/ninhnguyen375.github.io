@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 125px;
+	background: rgba(231,255,231,1.00)
+}
+
+.topfix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.header-container {}
+.fixfloat{
+	content: "";
+	display: table;
+	clear: both;
+	width: 100%;
+	height: 300px;
+}
+.clearfix{
+	clear: both;
+}
+.main{
+	width: 1201px;
+	min-width: 1200px;
+	margin: auto;
+}

@@ -1,0 +1,48 @@
+.sppb-01{
+	height:201.5px;
+	width:  246px;
+	background: red;
+	float: left;
+	float: left;border: 1px solid white;
+}
+.sppb-02{
+	width: 236px;
+	height: 100px;
+	background: blue;
+	float: left;border: 1px solid white;
+}
+.san-pham-pho-bien{
+	padding-top: 20px;
+	display: block;
+}
+.san-pham-pho-bien a{
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(0,39,0,0.78);
+}
+.san-pham-suu-tap {
+	display: block;
+}
+.san-pham-suu-tap a{
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(0,39,0,0.78);
+}
+.san-pham-suu-tap .sppb-02{
+	width: 298px;
+	height: 146px;
+}
+.danh-cho-ban a{
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(0,39,0,0.78);
+}
+.danh-cho-ban{
+	padding-top: 50px;
+}
+.danh-cho-ban .sppb-02{
+	height: 325px;
+	width: 198px;
+	margin: 0;
+	padding: 0;
+}
