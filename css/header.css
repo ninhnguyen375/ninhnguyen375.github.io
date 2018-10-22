@@ -104,16 +104,13 @@ font-weight: bold;
 	background: white;
 	color: black;
 	text-shadow: none;
-	box-shadow: 2px 2px 5px black;
 }
 .nav-dropdown:hover .dropdown-content{
-	/display: none;
 	display: block;
 	position: absolute;
 	z-index: 1;
 	border-radius:0 0 5px 5px;
 	transition: 0.3s;
-	box-shadow: 2px 2px 5px black;
 }
 .dropdown-content{
 	background: white;
