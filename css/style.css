@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 16px;
+}
+body{
+}
+.clear_both{
+  clear: both;
+}
+.wrapper{
+  width: 1365px;
+  margin: 0 auto;
+}
