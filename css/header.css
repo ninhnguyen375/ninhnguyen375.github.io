@@ -1,5 +1,5 @@
 .header {
-  width: 1365px;
+  width: 1345px;
   clear: both;
 }
 
@@ -16,6 +16,7 @@
 }
 
 .search_bar {
+  height: 42px;
 }
 
 .search_bar input[type=search] {

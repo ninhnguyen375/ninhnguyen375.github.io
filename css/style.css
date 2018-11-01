@@ -1,15 +1,28 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-size: 16px;
+  font-family: opensans;
 }
-body{
+@font-face {
+  font-family: "opensans";
+  src: url('../fonts/Open_Sans/OpenSans-Bold.ttf');
+  font-weight: bold;
 }
-.clear_both{
+@font-face {
+  font-family: "opensans";
+  src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+body {}
+
+.clear_both {
   clear: both;
 }
-.wrapper{
-  width: 1365px;
+
+.wrapper {
+  width: 1345px;
   margin: 0 auto;
+}
+.hidden{
+  display: none;
 }

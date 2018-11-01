@@ -1,48 +1,76 @@
 .nav_wrap{
-  width: 1062px;
+  width: 1022px;
   height: 100px;
+  margin: 30px 0 0 20px;
+  float: left;
 }
 .nav{
-  margin-top: 20px;
-  margin-left: 20px;
   height: 79px;
   border-top: 1px solid rgb(198, 198, 198);
   text-align: right;
 }
 .nav a{
+  height: 40px;
+  width: 110px;
+  margin-right: 20px;
+  margin-top: 25px;
+  color: gray;
+  display: inline-block;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  padding: 30px 0 0px 20px;
-  color: gray;
-  position: relative;
-  height: 30px;
-  width: 100px;
-  transition: 0.8s;
+  line-height: 35px;
 }
-.nav a::before{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background: gray;
-  z-index: -1;
-  transition: 0.8s;
+.nav a:hover{
+  box-shadow: 1px 1px 3px black;
 }
-.nav a:hover::before{
-  width: 150%;
-}
-#dia_diem{
+.nav #dia_diem{
   float: left;
   margin-top: 30px;
   margin-left: 20px;
   text-align: left;
-  width: 500px;
+  width: 420px;
   display: inline-block;
   cursor: pointer;
 }
-#dia_diem span{
+.nav #dia_diem span{
+  display: inline-block;
+  color: gray;
+  text-indent: 5px;
+}
+
+.fixed_nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgb(244, 244, 244);
+  box-shadow: 2px 2px 5px black;
+  text-align: right;
+  z-index: 10;
+  padding: 10px;
+  border-radius: 15px 0 0 15px;
+}
+.fixed_nav *{font-size: 15PX;}
+.fixed_nav a {
+  margin: 5px 10px 0 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: gray;
+  transition: 0.5s;
+}
+.fixed_nav a:hover{
+  text-decoration: underline;
+}
+.fixed_nav #dia_diem {
+  margin: 5px 5px 0 5px;
+  float: left;
+  text-align: left;
+  width: 500px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.fixed_nav #dia_diem span {
   display: inline-block;
   color: gray;
   text-indent: 5px;
