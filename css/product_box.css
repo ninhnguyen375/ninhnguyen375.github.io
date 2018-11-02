@@ -18,7 +18,7 @@
 .hinh{
 	background-position:center;
 	background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 	position: absolute;
 	top: 20px;
 	height: 210px;

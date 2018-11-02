@@ -27,7 +27,7 @@
   border-radius: 10px 0 0 10px;
 }
 
-.search_bar input[type=button] {
+.search_bar input[type=submit] {
   height: 40px;
   width: 60px;
   background: white;
