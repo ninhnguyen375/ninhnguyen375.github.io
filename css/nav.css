@@ -18,7 +18,7 @@
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  line-height: 35px;
+  line-height: 37px;
 }
 .nav a:hover{
   box-shadow: 1px 1px 3px black;
@@ -37,8 +37,24 @@
   color: gray;
   text-indent: 5px;
 }
-
-.fixed_nav {
+.fixed_nav{
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgb(244, 244, 244);
+  z-index: 10;
+  height: 50px;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 15px 0 0 15px;
+}
+.fixed_nav a{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.fixed_nav #dia_diem{
+  margin-top: 10px;
+}
+/* .fixed_nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -74,4 +90,4 @@
   display: inline-block;
   color: gray;
   text-indent: 5px;
-}
+} */

@@ -1,9 +1,10 @@
 .footer{
-	background-image: linear-gradient(white,rgba(161, 203, 55, 0.52));
+	background-image: linear-gradient(white,rgba(161, 203, 55, 0.72));
 	min-width: 1237px;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 30px;
 	display: block;
+	border-top: 1px solid rgb(186, 186, 186);
 }
 .footer .about,.lien-he,.orther{
 	text-align: center;

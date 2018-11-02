@@ -51,7 +51,7 @@ function fixedElement() {
   var nav = document.getElementsByClassName('nav')[0];
   window.onscroll = function() {
     if (html.scrollTop > 80) {
-      nav.className = 'fixed_nav';
+      nav.className += ' fixed_nav';
     } else {
       nav.className = 'nav';
     }
@@ -116,7 +116,6 @@ function go_to_content() {
 }
 
 // phân tích url theo ?{'số thứ tự danh mục'}{'vị trí bắt đầu load sản phẩm'}
-//
 function phan_tich_url() {
   go_to_content();
   //code[0] là thứ tự danh mục
@@ -132,7 +131,7 @@ function phan_tich_url() {
       header[1].className += ' hidden';
       list_sp[1].className += ' hidden';
       document.getElementsByClassName('small_txt')[0].innerHTML = 'ĐIỆN THOẠI';
-      document.getElementsByClassName('big_txt')[0].innerHTML = 'PHONE SKY';
+      document.getElementsByClassName('big_txt')[0].innerHTML = 'THE BEST PHONE';
       for (var i = parseFloat(code[1]); i < 55 && so_luong < 12; i++) {
         so_luong++;
         list_sp[0].innerHTML += '<div class="product-box">\
@@ -156,7 +155,7 @@ function phan_tich_url() {
       header[1].className += ' hidden';
       list_sp[1].className += ' hidden';
       document.getElementsByClassName('small_txt')[0].innerHTML = 'LAPTOP';
-      document.getElementsByClassName('big_txt')[0].innerHTML = 'THE BEST LAPTOPS';
+      document.getElementsByClassName('big_txt')[0].innerHTML = 'THE BEST LAPTOP';
       for (var i = parseFloat(code[1]); i < 30 && so_luong < 12; i++) {
         so_luong++;
         list_sp[0].innerHTML += '<div class="product-box">\
@@ -230,7 +229,7 @@ function phan_tich_url() {
       header[1].className += ' hidden';
       list_sp[1].className += ' hidden';
       document.getElementsByClassName('small_txt')[0].innerHTML = 'PHỤ KIỆN';
-      document.getElementsByClassName('big_txt')[0].innerHTML = 'THE BEST ITEM';
+      document.getElementsByClassName('big_txt')[0].innerHTML = 'BEST ACCESSORIES';
       for (var i = parseFloat(code[1]); i < 30 && so_luong < 12; i++) {
         so_luong++;
         list_sp[0].innerHTML +=
@@ -262,6 +261,8 @@ function phan_tich_url() {
   var trang_can_block = document.getElementsByClassName('so_trang')[temp/12];
   trang_can_block.className += ' block_trang';
 
+  //thêm số trang vào tiêu đề
+  document.getElementsByClassName('big_txt')[0].innerHTML += '<p style="letter-spacing:0;padding:0;margin:0;">PAGE - '+(temp/12+1)+'</p>';
 };
 
 

@@ -5,8 +5,9 @@
 	width: 240px;
 	height: 329px;
 	margin: 5px;
-  border: 1px solid rgb(208, 208, 208);
+  /* border: 1px solid rgb(208, 208, 208); */
 	float: left;
+	box-shadow: 1px 1px 5px gray;
 	transition: 0.3s;
 }
 .hinh-sp{
