@@ -1,0 +1,22 @@
+.slide_show{
+  max-width:800px;
+  height: 450px;
+  float: right;
+}
+.sm_banner_2{
+  margin-top: 30px;
+}
+.slide{
+  width: 790px;
+  height: 300px;
+  background: url(../image/banner/002-800-300.png);
+}
+.sm_banner{
+  float: left;
+  width: 380px;
+}
+.banner{
+  margin: 0 auto;
+  width: 1286px;
+  margin-top: 30px;
+}
