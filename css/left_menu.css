@@ -4,7 +4,7 @@
 
 .wrap_left_menu {
   width: 250px;
-  margin-top: 55px;
+  margin-top: 20px;
   float: left;
 }
 
@@ -14,37 +14,37 @@
 }
 
 .left_menu_header {
-  width: 220px;
+  width: 190px;
   text-align: center;
   background: ;
-  background: #f4f4f4;
+  background: rgb(242, 242, 242);
+  padding: 10px 0 10px 0;
   font-weight: bold;
-  padding: 12px 0 12px 0;
-  color: rgb(80, 80, 80);
-  box-shadow:  1px 1px 3px black;
-  border-radius: 0 10px 10px 0;
+  color: gray;
+  box-shadow: 1px 1px 3px black;
+  border-radius: 10px;
 }
 
-.danh_muc_item {
+.item {
   padding: 10px 0 10px 0;
   width: 190px;
-  text-indent: 30px;
-  text-align: left;
+  text-align: center;
   transition: 0.5s;
   text-decoration: none;
   border-bottom: 1px solid rgb(179, 179, 179);
+  /* border-radius: 0 15px 0 15px; */
   border-top: 0;
   /* box-shadow: 1px 1px 2px black; */
 }
 
-.danh_muc_item:hover {
-  padding-left: 50px;
-  border-radius: 0 15px 15px 0;
+.item:hover {
+  margin-left: 50px;
+  border-radius: 0 0 15px 0;
 }
 
 .fixed_left_menu {
   position: fixed;
   left: inherit;
   z-index: 10;
-  top: 0;
+  top: 10%;
 }
