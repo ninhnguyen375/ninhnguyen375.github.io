@@ -1,5 +1,5 @@
 .khung_sp_header {
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   clear: both;
   padding-top: 30px;
 }
@@ -10,7 +10,7 @@
 }
 .long_hr{
   display: inline-block;
-  width: 410px;
+  width: 340px;
   height: 1px;
   border: 0;
   background: rgb(191, 191, 191);
