@@ -1,8 +1,7 @@
 .nav_wrap{
-  width: 1000px;
-//  width: 1022px;
+  width: 1020px;
   height: 100px;
-  margin: 30px 0 0 20px;
+  margin: 30px 0 30px 20px;
   float: left;
 }
 .nav{

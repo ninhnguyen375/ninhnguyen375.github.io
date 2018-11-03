@@ -65,16 +65,16 @@ html {
 /* cho màn 1280px */
 @media (max-width: 1281px) {
   .wrapper{
-    width: 1280px;
+    width: 1260px;
   }
   .khung_sp_header{
-    width: 1010px;
+    width: 1000px;
   }
   .long_hr{
     width: 300px;
   }
   .khung_sp{
-    width: 1010px;
+    width: 1000px;
   }
   .left_menu {
     width: 230px;
@@ -89,6 +89,7 @@ html {
     margin-right: 0;
   }
   .banner{
+    width: 1260px;
     margin: 30px auto;
   }
 }
