@@ -95,7 +95,7 @@ function create_left_menu() {
     var khung = document.getElementsByClassName('list_danh_muc')[0];
     var vt = 0;
     for (var i = 0; i < danh_muc.length; i++) {
-        khung.innerHTML += '<a href="index.html?' + i + '&' + vt + '">\
+        khung.innerHTML += '<a class="use_for_login" href="index.html?' + i + '&' + vt + '">\
       <div class="danh_muc_item">' + danh_muc[i] + '</div>\
     </a>';
     }
@@ -337,12 +337,18 @@ function trang_chinh() {
         create_box();
     }
     create_left_menu();
+
     if (window.location.href.indexOf('?') != -1) {
         phan_tich_url();
     }
     for (var i = 0; i < them.length; i++) {
         them[i].onclick = function () {
-            mo_tbdn(this);
+            if (window.location.href.indexOf('account=') !== -1) {
+                alert('Đã Thêm');
+            }else{
+                mo_tbdn();
+            }
+            
         }
     }
     if (window.location.href.indexOf('account=') !== -1) {
@@ -354,13 +360,21 @@ function load_account() {
     var account_name = window.location.href.split('account=')[1];
     var login = document.getElementById('login');
     var dang_ky = document.getElementById('dang_ky');
+    var home = document.getElementById('home');
+    var logo_worldphone = document.getElementsByClassName('logo_worldphone')[0];
+    var use_for_login = document.getElementsByClassName('use_for_login');
+    for(var i=0;i<use_for_login.length;i++){
+        use_for_login[i].setAttribute('href', 'index.html?'+i+'&0&account='+account_name);
+    }
     dang_ky.innerHTML = 'ĐĂNG XUẤT';
     login.innerHTML = account_name;
     console.log(login);
     login.style.pointerEvents = 'none';
     login.style.color = 'rgb(255, 154, 0)';
     login.style.fontWeight = 'bold';
-    dang_ky.setAttribute('href','index.html');
+    dang_ky.setAttribute('href', 'index.html');
+    home.setAttribute('href', 'index.html?6&0&account='+account_name);
+    logo_worldphone.setAttribute('href', 'index.html?6&0&account='+account_name);
 }
 
 function login() {
