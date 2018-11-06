@@ -345,10 +345,10 @@ function trang_chinh() {
         them[i].onclick = function () {
             if (window.location.href.indexOf('account=') !== -1) {
                 alert('Đã Thêm');
-            }else{
+            } else {
                 mo_tbdn();
             }
-            
+
         }
     }
     if (window.location.href.indexOf('account=') !== -1) {
@@ -363,18 +363,26 @@ function load_account() {
     var home = document.getElementById('home');
     var logo_worldphone = document.getElementsByClassName('logo_worldphone')[0];
     var use_for_login = document.getElementsByClassName('use_for_login');
-    for(var i=0;i<use_for_login.length;i++){
-        use_for_login[i].setAttribute('href', 'index.html?'+i+'&0&account='+account_name);
+    for (var i = 0; i < use_for_login.length; i++) {
+        use_for_login[i].setAttribute('href', 'index.html?' + i + '&0&account=' + account_name);
     }
+    if (window.location.href.indexOf('?') != -1) {
+        var so_trang = document.getElementsByClassName('so_trang');
+        for (var i = 0; i < so_trang.length; i++) {
+            var href_of_so_trang = so_trang[i].getAttribute('href') + '&account=' + account_name;
+            so_trang[i].setAttribute('href', href_of_so_trang);
+        }
+    }
+
     dang_ky.innerHTML = 'ĐĂNG XUẤT';
     login.innerHTML = account_name;
-    console.log(login);
     login.style.pointerEvents = 'none';
     login.style.color = 'rgb(255, 154, 0)';
     login.style.fontWeight = 'bold';
     dang_ky.setAttribute('href', 'index.html');
-    home.setAttribute('href', 'index.html?6&0&account='+account_name);
-    logo_worldphone.setAttribute('href', 'index.html?6&0&account='+account_name);
+    home.setAttribute('href', 'index.html?6&0&account=' + account_name);
+    logo_worldphone.setAttribute('href', 'index.html?6&0&account=' + account_name);
+
 }
 
 function login() {
