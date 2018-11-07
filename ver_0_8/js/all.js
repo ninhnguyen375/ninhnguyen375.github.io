@@ -297,37 +297,50 @@ function click_add_to_cart() {
 
 function load_gio_hang() {
     var clear = document.getElementsByClassName('clear_all_cart')[0];
-    clear.onclick = function(){
+    if(localStorage.length<=0){
+        clear.style.display = 'none';
+    }
+    else{
+        clear.style.display = 'block';
+    }
+    clear.onclick = function () {
         localStorage.clear();
         window.location = 'gio_hang.html';
     }
     for (var i = 0; i < localStorage.length; i++) {
-        var box = JSON.parse(localStorage.getItem("box_" + i));
+        var box_index = "box_" + i;
+        var box = JSON.parse(localStorage.getItem(box_index));
+        console.log(box_index);
         var dm;
         var list_sp = document.getElementsByClassName('list_sp')[0];
         var ma = parseInt(box.ma_sp);
-        switch(box.danh_muc){
-                case "0": dm = 'phone';
-                    break;
-                case "1": dm = 'laptop';
-                    break;
-                case "2": dm = 'camera';
-                    break;
-                case "3": dm = 'pad';
-                    break;
-                case "4": dm = 'phu-kien';
-                    break;
+        switch (box.danh_muc) {
+            case "0":
+                dm = 'phone';
+                break;
+            case "1":
+                dm = 'laptop';
+                break;
+            case "2":
+                dm = 'camera';
+                break;
+            case "3":
+                dm = 'pad';
+                break;
+            case "4":
+                dm = 'phu-kien';
+                break;
             default:
                 break;
         }
         list_sp.innerHTML += '\
                 <div class="cart-item" id="">\
                     <div class="cart-item-left">\
-                        <img class="cart-img" src="image/'+dm+'/'+dm+'_'+(ma+1)+'.jpg">\
-                        <a href="thong-tin-sp.html" class="cart-heading">'+dm+' 6 Plus</a><br>\
+                        <img class="cart-img" src="image/' + dm + '/' + dm + '_' + (ma + 1) + '.jpg">\
+                        <a href="thong-tin-sp.html" class="cart-heading">' + dm + ' 6 Plus</a><br>\
                         <p class="cart-brand">Apple</p>\
                         <div class="cart-btn">\
-                            <span class="delete-cart" id=""></span>\
+                            <span data-delete="' + box_index + '" class="delete-cart" id=""></span>\
                             <span id="heart-cart"></span>\
                         </div>\
                     </div>\
@@ -346,15 +359,26 @@ function load_gio_hang() {
 
 }
 
+function click_delete_cart() {
+    var delete_cart = document.getElementsByClassName('delete-cart');
+    for (var i = 0; i < delete_cart.length; i++) {
+        delete_cart[i].addEventListener('click', function () {
+            localStorage.removeItem(this.getAttribute('data-delete'));
+            location.reload();
+        });
+    }
+}
+//
 //chạy JS
 window.addEventListener('load', click_add_to_cart);
 
 function gio_hang() {
-    load_gio_hang();
+    
     slide_show();
+    load_gio_hang();
     fixedElement();
     create_left_menu();
-    
+    click_delete_cart();
 }
 
 function trang_chinh() {
