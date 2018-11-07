@@ -278,8 +278,6 @@ function mo_tbdn() {
     }
 };
 
-var jsonIndex = 0;
-
 function click_add_to_cart() {
     var them = document.getElementsByClassName('them');
     for (var i = 0; i < them.length; i++) {
@@ -290,50 +288,52 @@ function click_add_to_cart() {
                 ma_sp: info[0]
             };
             localStorage.setItem("box_" + localStorage.length, JSON.stringify(obj));
-            jsonIndex++;
+            alert('Đã Thêm');
         });
     }
 }
 
 function load_gio_hang() {
     var clear = document.getElementsByClassName('clear_all_cart')[0];
-    if(localStorage.length<=0){
+    if (localStorage.length <= 0) {
         clear.style.display = 'none';
-    }
-    else{
+    } else {
         clear.style.display = 'block';
     }
     clear.onclick = function () {
         localStorage.clear();
         window.location = 'gio_hang.html';
     }
-    for (var i = 0; i < localStorage.length; i++) {
+    var lclength = localStorage.length;
+    for (var i = 0; i < lclength; i++) {
+
         var box_index = "box_" + i;
-        var box = JSON.parse(localStorage.getItem(box_index));
-        console.log(box_index);
-        var dm;
-        var list_sp = document.getElementsByClassName('list_sp')[0];
-        var ma = parseInt(box.ma_sp);
-        switch (box.danh_muc) {
-            case "0":
-                dm = 'phone';
-                break;
-            case "1":
-                dm = 'laptop';
-                break;
-            case "2":
-                dm = 'camera';
-                break;
-            case "3":
-                dm = 'pad';
-                break;
-            case "4":
-                dm = 'phu-kien';
-                break;
-            default:
-                break;
-        }
-        list_sp.innerHTML += '\
+        if (localStorage.getItem(box_index)) {
+            var box = JSON.parse(localStorage.getItem(box_index));
+            console.log(box_index);
+            var dm;
+            var list_sp = document.getElementsByClassName('list_sp')[0];
+            var ma = parseInt(box.ma_sp);
+            switch (box.danh_muc) {
+                case "0":
+                    dm = 'phone';
+                    break;
+                case "1":
+                    dm = 'laptop';
+                    break;
+                case "2":
+                    dm = 'camera';
+                    break;
+                case "3":
+                    dm = 'pad';
+                    break;
+                case "4":
+                    dm = 'phu-kien';
+                    break;
+                default:
+                    break;
+            }
+            list_sp.innerHTML += '\
                 <div class="cart-item" id="">\
                     <div class="cart-item-left">\
                         <img class="cart-img" src="image/' + dm + '/' + dm + '_' + (ma + 1) + '.jpg">\
@@ -355,6 +355,10 @@ function load_gio_hang() {
         text-decoration:line-through">20.000.000đ</p>\
                     <p style="font-size:15px;color:rgb(79, 79, 79);margin:0;padding-top:10px; ">-90%</p>\
                 </div>'
+        }else{
+            lclength++;
+            console.log('else run');
+        }
     }
 
 }
@@ -365,6 +369,7 @@ function click_delete_cart() {
         delete_cart[i].addEventListener('click', function () {
             localStorage.removeItem(this.getAttribute('data-delete'));
             location.reload();
+          //  load_gio_hang();
         });
     }
 }
@@ -373,7 +378,7 @@ function click_delete_cart() {
 window.addEventListener('load', click_add_to_cart);
 
 function gio_hang() {
-    
+
     slide_show();
     load_gio_hang();
     fixedElement();
