@@ -45,14 +45,16 @@
 .gia-tien{
 	margin: 0;
 	padding: 0px 0 0 10px;
-	font-size: 15px;
-  font-weight: bold;
-	color: red;
+	font-size: 16px;
+    color: #ff6005;
+    display: inline-block;
+    font-weight: bold;
 }
 .gia-cu{
 	font-size: 12px;
 	margin-left: 10px;
 	text-decoration: line-through;
+    color: #ff6005;
 }
 .icon-cart{
 	height: 16px;

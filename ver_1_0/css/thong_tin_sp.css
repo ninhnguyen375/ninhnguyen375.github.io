@@ -31,6 +31,7 @@
 .thong-tin-san-pham{
 	float: right;
 	margin: 70px;
+    width: 410px;
 }
 .thong-tin-san-pham{
 	margin-top: 10px;
@@ -48,8 +49,6 @@
 	color: #000;
 	font-size: 15px;
 	transition: 0.3s;
-    height: 60px;
-    width: 200px;
 }
 .thong-tin-san-pham button:hover{
 	border: 2px solid #0034DD;
@@ -96,4 +95,5 @@
 }
 .ten_sp{
     margin-bottom: 10px;
+    color: #636363;
 }

@@ -1,5 +1,5 @@
 var ten_danh_muc_sp = ["Điện thoại", "Laptop", "Máy ảnh", "Máy tính bảng", "Phụ kiện"];
-
+var list_tieu_de =["THE BEST PHONE","THE BEST LAPTOP","THE BEST CAMERA","THE BEST PAD","THE ACCESSORIES"];
 function san_pham(masp, matl, tensp, gia, hinh) {
     this.masp = masp;
     this.matl = matl;
@@ -7,19 +7,20 @@ function san_pham(masp, matl, tensp, gia, hinh) {
     this.gia = gia;
     this.hinh = hinh;
 }
-
+//khởi tạo mảng sản phẩm điện thoại
 var phone = new Array();
 for (var i = 0; i < 55; i++) {
     phone[i] = new san_pham(
-        i,
-        0,
-        'Điện thoại ' + (i + 1),
-        Math.floor((Math.random() * 100) + (1)),
-        'image/phone/phone_' + (i + 1) + '.jpg'
+        i, //-------------------------------------- Mã sản phẩm
+        0, //-------------------------------------- Mã thể loại
+        'Điện thoại ' + (i + 1), //---------------- Tên sản phẩm
+        Math.floor((Math.random() * 100) + (1)), // Giá tiền
+        'image/phone/phone_' + (i + 1) + '.jpg' //- Hình sản phẩm
     );
 }
+//khởi tạo mảng sản phẩm laptop
 var laptop = new Array();
-for (var i = 0; i < 55; i++) {
+for (var i = 0; i < 33; i++) {
     laptop[i] = new san_pham(
         i,
         1,
@@ -28,8 +29,9 @@ for (var i = 0; i < 55; i++) {
         'image/laptop/laptop_' + (i + 1) + '.jpg'
     );
 }
+//khởi tạo mảng sản phẩm camera
 var camera = new Array();
-for (var i = 0; i < 55; i++) {
+for (var i = 0; i < 33; i++) {
     camera[i] = new san_pham(
         i,
         2,
@@ -38,8 +40,9 @@ for (var i = 0; i < 55; i++) {
         'image/camera/camera_' + (i + 1) + '.jpg'
     );
 }
+//khởi tạo mảng sản phẩm Máy tính bảng
 var pad = new Array();
-for (var i = 0; i < 55; i++) {
+for (var i = 0; i < 33; i++) {
     pad[i] = new san_pham(
         i,
         3,
@@ -48,8 +51,9 @@ for (var i = 0; i < 55; i++) {
         'image/pad/pad_' + (i + 1) + '.jpg'
     );
 }
+//khởi tạo mảng sản phẩm Phụ kiện
 var phu_kien = new Array();
-for (var i = 0; i < 55; i++) {
+for (var i = 0; i < 33; i++) {
     phu_kien[i] = new san_pham(
         i,
         4,
@@ -58,14 +62,14 @@ for (var i = 0; i < 55; i++) {
         'image/phu-kien/phu-kien_' + (i + 1) + '.jpg'
     );
 }
-//var list_danh_muc = [phone,camera,phu_kien,pad,laptop];
-var list_danh_muc = [
-    phone,
-    laptop,
-    camera,
-    pad,
-    phu_kien
-];
+//Khởi tạo mảng chứa các danh mục sản phẩm
+var list_danh_muc = [phone,laptop,camera,pad,phu_kien];
+
+
+//NOTE: Giá tiền random trong hàng chục. Chuỗi .000.000đ chỉ để cho vui thôi ^_^!
+//------------------------KHỞI TẠO HOÀN TẤT--------------------------
+
+
 //chuyển slide banner
 function slide_show() {
     var so_slide = 0;
@@ -89,7 +93,7 @@ function slide_show() {
 
     }
 };
-
+//Chuyển đến slide thứ n
 function show_slide_index(n) {
     var slides = document.getElementsByClassName("slide");
     var dot = document.getElementsByClassName('dot');
@@ -123,12 +127,11 @@ function fixedElement() {
 
 //tạo menu danh mục sản phẩm
 function create_left_menu() {
-    var danh_muc = ['ĐIỆN THOẠI', 'LAPTOP', 'MÁY ẢNH', 'MÁY TÍNH BẢNG', 'PHỤ KIỆN'];
     var khung = document.getElementsByClassName('list_danh_muc')[0];
     var vt = 0;
-    for (var i = 0; i < danh_muc.length; i++) {
+    for (var i = 0; i < ten_danh_muc_sp.length; i++) {
         khung.innerHTML += '<a class="use_for_login" href="index.html?' + i + '&' + vt + '">\
-      <div class="danh_muc_item">' + danh_muc[i] + '</div>\
+      <div class="danh_muc_item">' + ten_danh_muc_sp[i] + '</div>\
     </a>';
     }
 };
@@ -183,14 +186,18 @@ function phan_tich_url() {
     var chuyen_trang = document.getElementsByClassName('chuyen_trang')[0];
     var so_luong = 0,
         so_trang = 1;
+    //Lướt trang xuống phần nội dung
     if (code[1] >= 12) {
         go_to_content();
     }
+    //Ẩn các thanh tiêu đề thừa tron trang chính
     header[1].className += ' hidden';
     list_sp[1].className += ' hidden';
-    document.getElementsByClassName('small_txt')[0].innerHTML = 'ĐIỆN THOẠI';
-    document.getElementsByClassName('big_txt')[0].innerHTML = 'THE BEST PHONE';
-    for (var i = parseFloat(code[1]); i < 55 && so_luong < 12; i++) {
+    //Thay đổi nội dung thanh tiêu đề
+    document.getElementsByClassName('small_txt')[0].innerHTML = ten_danh_muc_sp[code[0]].toUpperCase();
+    document.getElementsByClassName('big_txt')[0].innerHTML = list_tieu_de[code[0]];
+    //Load các hộp sản phẩm
+    for (var i = parseFloat(code[1]); i < sp.length && so_luong < 12; i++) {
         so_luong++;
         list_sp[0].innerHTML += '<div class="product-box">\
                       <a class="box" href="thong_tin_sp.html?' + i + '&' + code[0] + '">\
@@ -203,7 +210,8 @@ function phan_tich_url() {
                       <div class="them-vao-gio-hang"><button value="' + i + '&' + code[0] + '" style="button" class="them">Add <img class="icon-cart" src="image/icon/icon-cart.png"></button></div>\
                     </div>';
     }
-    so_trang = Math.ceil(55 / 12);
+    
+    so_trang = Math.ceil(sp.length / 12);
     var temp = code[1];
     for (var i = 1; i <= so_trang; i++) {
         code[1] = (i - 1) * 12;
@@ -215,25 +223,29 @@ function phan_tich_url() {
     var trang_can_block = document.getElementsByClassName('so_trang')[temp / 12];
     trang_can_block.className += ' block_trang';
 
-    //thêm số trang vào tiêu đề
+    //thêm số trang hiện tại vào tiêu đề
     document.getElementsByClassName('big_txt')[0].innerHTML +=
         '<span style="letter-spacing:0;padding:0;margin:0;"> - PAGE - ' + (temp / 12 + 1) + '</span>';
 };
 
-//mở thông báo đăng nhập
-function mo_tbdn() {
-    var quaylai = document.getElementById('no');
-    var dangnhap = document.getElementById('yes');
-    var tbdn = document.getElementById('thong-bao-dang-nhap');
-    tbdn.style.display = 'block';
-    quaylai.onclick = function () {
-        tbdn.style.display = 'none';
-    }
-    dangnhap.onclick = function () {
-        window.location = 'login.html';
-    }
-};
+//Mở thông báo đăng nhập --KHÔNG CẦN NỮA
+//function mo_tbdn() {
+//    var quaylai = document.getElementById('no');
+//    var dangnhap = document.getElementById('yes');
+//    var tbdn = document.getElementById('thong-bao-dang-nhap');
+//    tbdn.style.display = 'block';
+//    quaylai.onclick = function () {
+//        tbdn.style.display = 'none';
+//    }
+//    dangnhap.onclick = function () {
+//        window.location = 'login.html';
+//    }
+//};
 
+//Tạo sự kiện Khi click vào nút thêm vào giỏ đồ
+//  Hành động khi click : phân tích dữ liệu value trong nút "them"
+//  và đưa giá trị vào localStorage, gồm "mã của danh mục" 
+//  và "mã sản phẩm". Gán tiêu đề cho gói đó dạng box_i
 function click_add_to_cart() {
     var them = document.getElementsByClassName('them');
     for (var i = 0; i < them.length; i++) {
@@ -244,29 +256,33 @@ function click_add_to_cart() {
                 ma_sp: info[0]
             };
             localStorage.setItem("box_" + localStorage.length, JSON.stringify(obj));
-            //alert('Đã Thêm');
             this.className = 'them them_fade';
         });
     }
 }
 
+//Load từ localStorage vào giỏ hàng
 function load_gio_hang() {
     var clear = document.getElementsByClassName('clear_all_cart')[0];
+    
+    // Ẩn hiện nút "Xóa tất cả sản phẩm"
     if (localStorage.length <= 0) {
         clear.style.display = 'none';
     } else {
         clear.style.display = 'inline-block';
     }
+    //Xóa dữ liệu trong localSt và load lại trang
     clear.onclick = function () {
         localStorage.clear();
-        window.location = 'gio_hang.html';
+        location.reload();
     }
+    //Bắt đầu load nếu nó không rỗng
     var lclength = localStorage.length;
     for (var i = 0; i < lclength; i++) {
+        //Tìm và lấy giá trị dạng box_i
         var box_index = "box_" + i;
         if (localStorage.getItem(box_index)) {
             var box = JSON.parse(localStorage.getItem(box_index));
-            //var dm = ma_danh_muc[box.danh_muc];
             var sp = list_danh_muc[box.danh_muc];
             var key_for_url = box.ma_sp + '&' + box.danh_muc;
             var list_sp = document.getElementsByClassName('list_sp')[0];
@@ -294,7 +310,7 @@ function load_gio_hang() {
                     <p style="font-size:15px;color:rgb(79, 79, 79);margin:0;padding-top:10px; ">-90%</p>\
                 </div>'
         } else {
-            lclength++;
+            //lclength++;
             console.log('else run');
         }
     }
