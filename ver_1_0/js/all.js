@@ -345,15 +345,15 @@ function click_delete_cart() {
 function url_chi_tiet_sp() {
     var key = window.location.toString().split('?')[1];
     var code = key.split('&');
-    var dm = code[1];
-    var ma = parseInt(code[0]);
+    var sp = list_danh_muc[code[1]];
+    var masp = parseInt(code[0]);
     var hinh = document.getElementsByClassName('ttsp_hinh');
     var ten = document.getElementsByClassName('ten_sp')[0];
     for (var i = 0; i < hinh.length; i++) {
-
-        hinh[i].setAttribute('style', 'background-image: url(image/' + ma_danh_muc[dm] + '/' + ma_danh_muc[dm] + '_' + (ma + 1) + '.jpg)');
+        hinh[i].setAttribute('style', 'background-image: url('+sp[masp].hinh+')');
     }
-    ten.innerHTML = ten_danh_muc_sp[dm] + ' ' + (ma + 1);
+    ten.innerHTML = sp[masp].tensp;
+    document.getElementsByClassName('gia-tien')[0].innerHTML = sp[masp].gia + '.000.000đ';
 }
 
 
