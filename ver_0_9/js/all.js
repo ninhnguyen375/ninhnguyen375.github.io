@@ -85,7 +85,7 @@ function create_box() {
           <p class="ten-sp">Iphone XS - ' + (i + 1) + '</p>\
           <p class="gia-tien">20.000.000đ<span class="gia-cu">5.000.000đ</span></p>\
         </a>\
-        <div class="them-vao-gio-hang"><button value="' + i + '&0" style="button" class="them">Add <img class="icon-cart" src="image/icon/icon-cart.png"></button></div>\
+        <div class="them-vao-gio-hang"><button title="Thêm sản phẩm này vào giỏ hàng của bạn"  value="' + i + '&0" style="button" class="them">Add <img class="icon-cart" src="image/icon/icon-cart.png"></button></div>\
       </div>';
         list_sp_2.innerHTML += '<div class="product-box">\
         <a class="box" href="thong_tin_sp.html?' + i + '&0">\
@@ -95,7 +95,7 @@ function create_box() {
           <p class="ten-sp">Laptop Asus - ' + (i + 1) + '</p>\
           <p class="gia-tien">20.000.000đ<span class="gia-cu">5.000.000đ</span></p>\
         </a>\
-        <div class="them-vao-gio-hang"><button value="' + i + '&1" style="button" class="them">Add <img class="icon-cart" src="image/icon/icon-cart.png"></button></div>\
+        <div class="them-vao-gio-hang"><button title="Thêm sản phẩm này vào giỏ hàng của bạn" value="' + i + '&1" style="button" class="them">Add <img class="icon-cart" src="image/icon/icon-cart.png"></button></div>\
       </div>';
     }
 
@@ -304,7 +304,7 @@ function load_gio_hang() {
     if (localStorage.length <= 0) {
         clear.style.display = 'none';
     } else {
-        clear.style.display = 'block';
+        clear.style.display = 'inline-block';
     }
     clear.onclick = function () {
         localStorage.clear();
@@ -323,20 +323,20 @@ function load_gio_hang() {
                 <div class="cart-item" id="' + box_index + '">\
                     <div class="cart-item-left">\
                         <div  style="background-image: url(image/' + dm + '/' + dm + '_' + (ma + 1) + '.jpg)" class="cart-img" ></div>\
-                        <a href="thong_tin_sp.html?'+ma+'&'+box.danh_muc+'" class="cart-heading">' + ten_danh_muc_sp[box.danh_muc] + ' ' + (ma + 1) + '</a><br>\
+                        <a href="thong_tin_sp.html?' + ma + '&' + box.danh_muc + '" class="cart-heading">' + ten_danh_muc_sp[box.danh_muc] + ' ' + (ma + 1) + '</a><br>\
                         <p class="cart-brand">Thế giới ' + dm + '</p>\
                         <div class="cart-btn">\
-                            <span data-delete="' + box_index + '" class="delete-cart" id=""></span>\
-                            <span id="heart-cart"></span>\
+                            <span title="Xóa sản phẩm khỏi giỏ hàng" data-delete="' + box_index + '" class="delete-cart" id=""></span>\
+                            <span onclick="alert(\'Bạn đã thích 1 sản phẩm\')" title="I LOVE IT <3" id="heart-cart"></span>\
                         </div>\
                     </div>\
                     <div class="cart-item-right">\
                         <form action="">\
-                            <input value="1" type="text" name="" id=""><br>\
-                            <input type="button" name="" value="OK">\
+                            <input value="1" type="text" name="" id="numbers_of_cart_item"><br>\
+                            <input onclick="alert(\'T ko làm cái này\')" type="button" name="" value="OK">\
                         </form>\
                     </div>\
-                    <p style="font-size:18px;color:rgb(255, 99, 0);margin:0;padding-top:5px">2.000.000đ</p>\
+                    <p class="gia_tien" style="font-size:18px;color:rgb(255, 99, 0);margin:0;padding-top:5px">2.000.000đ</p>\
                     <p style="font-size:15px;color:rgb(124, 124, 124);margin:0;padding-top:10px;\
         text-decoration:line-through">20.000.000đ</p>\
                     <p style="font-size:15px;color:rgb(79, 79, 79);margin:0;padding-top:10px; ">-90%</p>\
@@ -360,21 +360,30 @@ function xac_nhan(e) {
     }
 }
 
-
+function xac_nhan_gio_hang(){
+    if(localStorage.length>0){
+        localStorage.clear();
+        alert('Thành công!\nCảm ơn bạn đã mua hàng của chúng tôi');
+        location.reload();
+    }else{
+        alert('Giỏ hàng rỗng');
+    }
+}
 function click_delete_cart() {
     var delete_cart = document.getElementsByClassName('delete-cart');
     for (var i = 0; i < delete_cart.length; i++) {
         delete_cart[i].addEventListener('click', function () {
-            var key = this.getAttribute('data-delete');
-            localStorage.removeItem(key);
-            //location.reload();
-            var cart = document.getElementById(key);
-            cart.className = 'cart-item cart-item-hide';
-            console.log('u click xoa');
+            if(confirm('Xác nhận xóa')){
+                
+                var key = this.getAttribute('data-delete');
+                var cart = document.getElementById(key);
+                localStorage.removeItem(key);
+                cart.className = 'cart-item cart-item-hide';
+                document.getElementsByClassName('refresh_cart')[0].style.display = 'inline';
+            }
         });
     }
 }
-
 
 function url_chi_tiet_sp() {
     var key = window.location.toString().split('?')[1];
@@ -389,6 +398,25 @@ function url_chi_tiet_sp() {
     }
     ten.innerHTML = ten_danh_muc_sp[dm] + ' ' + (ma + 1);
 }
+
+
+function tinh_tong_tien() {
+    var so_sp = localStorage.length;
+    var gia_tien = document.getElementsByClassName('gia_tien');
+    var tong_tien = document.getElementsByClassName('tong_tien');
+    var sum = 0;
+    for(var i=0;i<gia_tien.length;i++){
+        sum += parseInt(gia_tien[i].innerHTML);
+    }
+    console.log(sum);
+    if (so_sp > 0) {
+        tong_tien[0].innerHTML = sum + '.000.000đ';
+        tong_tien[1].innerHTML = sum + '.000.000đ';
+    }
+    document.getElementById('dem_sp').innerHTML = 'Tạm tính ('+so_sp+' sản phẩm):';
+}
+
+
 
 function set_value_ttsp_them() {
     var them = document.getElementsByClassName('ttsp_them')[0];
@@ -405,6 +433,7 @@ function gio_hang() {
     fixedElement();
     create_left_menu();
     click_delete_cart();
+    tinh_tong_tien();
 }
 
 function thong_tin_sp() {

@@ -206,3 +206,15 @@
 .clear_all_cart:hover{
     background: #f57224;
 }
+
+.refresh_cart {
+    padding: 10px;
+    cursor: pointer;
+    color: blue;
+    display: none;
+}
+.refresh_cart:hover{
+    text-decoration: underline;
+}
+
+
