@@ -310,14 +310,14 @@ function load_gio_hang() {
                     <p style="font-size:15px;color:rgb(79, 79, 79);margin:0;padding-top:10px; ">-90%</p>\
                 </div>'
         } else {
-            //lclength++;
-            console.log('else run');
+            //Cộng lên bù những box đã click xóa
+            lclength++;
         }
     }
 
 }
 
-
+//Cái này cho nút thêm sản phẩm trong trang thong_tin_sp.html
 function xac_nhan(e) {
     if (confirm('Xác nhận thêm')) {
         e.className = 'them';
@@ -332,6 +332,7 @@ function reload() {
     location.reload();
 }
 
+//Khi click nút xác nhận giỏ hàng
 function xac_nhan_gio_hang() {
     if (localStorage.length > 0) {
         localStorage.clear();
@@ -341,6 +342,7 @@ function xac_nhan_gio_hang() {
         alert('Giỏ hàng rỗng');
     }
 }
+
 
 function click_delete_cart() {
     var delete_cart = document.getElementsByClassName('delete-cart');
