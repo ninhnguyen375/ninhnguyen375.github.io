@@ -1,0 +1,57 @@
+.footer{
+	background-image: linear-gradient(white,rgba(161, 203, 55, 0.72));
+	min-width: 1237px;
+	text-align: center;
+	padding-top: 30px;
+	display: block;
+	border-top: 1px solid rgb(186, 186, 186);
+}
+.footer .about,.lien-he,.orther{
+	text-align: center;
+	padding-top: 30px;
+	border-radius: 10px;
+	color: gray;
+	width: 390px;
+	height: 200px;
+	margin: 10px;
+	background: white;
+	font-size: 16px;
+}
+.about{
+	float: left;
+}
+.about p{
+	margin-top: 17px;
+}
+.orther{
+	display: inline-block;
+	padding: 0 0 30px 0;
+
+}
+.orther .logo-big{
+	margin-left: 33%;
+	padding-bottom: 10px;
+}
+.lien-he{
+	float: right;
+}
+.lien-he a{
+	padding: 10px;
+	margin-top: 40px;
+	display: inline-block;
+	border: 2px solid #a1cb37;
+	color: #a1cb37;
+	text-decoration: none;
+	transition: 0.3s;
+}
+.lien-he a:hover{
+	background: #a1cb37;
+	color: white;
+}
+.copyright{
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px black;
+}
