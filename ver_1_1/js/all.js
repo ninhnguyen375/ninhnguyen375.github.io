@@ -111,6 +111,7 @@ function fixedElement() {
     var html = document.documentElement;
     var l_menu = document.getElementsByClassName('left_menu')[0];
     var nav = document.getElementsByClassName('nav')[0];
+    var sum_sec = document.getElementsByClassName('summary-section')[0];
     window.onscroll = function () {
         if (html.scrollTop > 80) {
             nav.className = 'nav fixed_nav';
@@ -121,6 +122,12 @@ function fixedElement() {
             l_menu.className = 'left_menu fixed_left_menu';
         } else {
             l_menu.className = 'left_menu';
+        }
+        if(html.scrollTop > 740){
+            sum_sec.className = 'summary-section summary-section-fixed';
+        }
+        else{
+            sum_sec.className = 'summary-section';
         }
     }
 };

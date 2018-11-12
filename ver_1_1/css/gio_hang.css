@@ -8,7 +8,13 @@
     box-shadow: 1px 1px 5px black;
     padding: 10px 0 25px 0;
 }
-
+.summary-section-fixed{
+    position: fixed;
+    margin: 0;
+    top: 60px;
+    right: 50px;
+    z-index: 10;
+}
 .summary-heading {
     font-size: 19px;
     text-align: center;
