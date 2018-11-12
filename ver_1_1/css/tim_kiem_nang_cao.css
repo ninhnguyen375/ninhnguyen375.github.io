@@ -1,0 +1,29 @@
+.thanh_tim_kiem_nang_cao *{
+    color: gray;
+}
+.gia_tien,.loai {
+    display: inline-block;
+    width: 500px;
+    font-size: 14px;
+    color: black;
+}
+.loai{
+    width: 250px;
+    text-align: left;
+}
+.gia_tien{
+    text-align: right;
+    margin-right: 20px;
+}
+
+.thanh_tim_kiem_nang_cao {
+    margin-bottom: 20px;
+    text-align: right;
+    display: none;
+}
+#gia_id,#loai_id{
+    border: 0;
+}
+.thanh_tim_kiem_nang_cao option{
+    text-align: center;
+}
