@@ -111,8 +111,7 @@ function fixedElement() {
     var html = document.documentElement;
     var l_menu = document.getElementsByClassName('left_menu')[0];
     var nav = document.getElementsByClassName('nav')[0];
-    var sum_sec = document.getElementsByClassName('summary-section')[0];
-    window.onscroll = function () {
+    window.addEventListener('scroll', function () {
         if (html.scrollTop > 80) {
             nav.className = 'nav fixed_nav';
         } else {
@@ -123,15 +122,20 @@ function fixedElement() {
         } else {
             l_menu.className = 'left_menu';
         }
-        if(html.scrollTop > 740){
-            sum_sec.className = 'summary-section summary-section-fixed';
-        }
-        else{
-            sum_sec.className = 'summary-section';
-        }
-    }
+    });
+
 };
 
+function fixed_summary_section() {
+    var sum_sec = document.getElementsByClassName('summary-section')[0];
+    window.onscroll = function () {
+        if (document.documentElement.scrollTop > 740) {
+            sum_sec.className = 'summary-section summary-section-fixed';
+        } else {
+            sum_sec.className = 'summary-section';
+        }
+    };
+}
 
 //tạo menu danh mục sản phẩm
 function create_left_menu() {
@@ -272,7 +276,6 @@ function click_add_to_cart() {
 //Load từ localStorage vào giỏ hàng
 function load_gio_hang() {
     var clear = document.getElementsByClassName('clear_all_cart')[0];
-
     // Ẩn hiện nút "Xóa tất cả sản phẩm"
     if (localStorage.length <= 0) {
         clear.style.display = 'none';
@@ -417,26 +420,29 @@ function load_tim_kiem() {
     var search_loai = parseInt(url.split('search=')[1].split('&')[2]);
     var search_gia_min = 0;
     var dem = 0;
-    switch(search_gia){
-        case 10: search_gia_min = 1;
+    switch (search_gia) {
+        case 10:
+            search_gia_min = 1;
             break;
-        case 50: search_gia_min = 10;
+        case 50:
+            search_gia_min = 10;
             break;
-        case 100: search_gia_min = 50;
+        case 100:
+            search_gia_min = 50;
             break;
-        default: break;
+        default:
+            break;
     }
-    
+
     if (search_value != '') {
-        for (var i = 0;i < 5; i++) {
+        for (var i = 0; i < 5; i++) {
             var list = list_danh_muc[i];
             for (var j = 0; j < list.length; j++) {
                 var name = spc_to_plus(xoa_dau(list[j].tensp)).toLowerCase();
-                if (name.indexOf(search_value) != -1 
-                    && (search_loai == '-1' || search_loai == i)
-                    && (search_gia == '-1' || (search_gia >= list[j].gia && search_gia_min <= list[j].gia))
-                   ) 
-                {
+                if (name.indexOf(search_value) != -1 &&
+                    (search_loai == '-1' || search_loai == i) &&
+                    (search_gia == '-1' || (search_gia >= list[j].gia && search_gia_min <= list[j].gia))
+                ) {
                     dem++;
                     document.getElementsByClassName('list_sp')[0].innerHTML += '<div class="product-box">\
                       <a class="box" href="thong_tin_sp.html?' + j + '&' + i + '">\
@@ -457,33 +463,39 @@ function load_tim_kiem() {
     document.getElementsByClassName('khung_sp_header')[1].style.display = 'none';
     document.getElementsByClassName('thanh_tim_kiem_nang_cao')[0].style.display = 'block';
 }
-function search_selected(){
+
+function search_selected() {
     var url = window.location.href.split('&');
     var opt = document.getElementsByTagName('option');
-    for(var i = 0; i < opt.length; i++){
-        if(url[2] == opt[i].value || url[1] == opt[i].value){
-            opt[i].setAttribute('selected','');
+    for (var i = 0; i < opt.length; i++) {
+        if (url[2] == opt[i].value || url[1] == opt[i].value) {
+            opt[i].setAttribute('selected', '');
         }
-        
+
     }
-    
+
 }
-function search(){
+
+function search() {
     var search_content = document.getElementById('search_txt').value;
     window.location.href = 'index.html?search=' + spc_to_plus(xoa_dau(search_content)) + '&-1&-1';
 }
-function search_loai(e){
+
+function search_loai(e) {
     var url = window.location.href.split('&');
     window.location.href = url[0] + '&' + url[1] + '&' + e.value;
 }
-function search_gia(e){
+
+function search_gia(e) {
     var url = window.location.href.split('&');
-    window.location.href = url[0] + '&' + e.value+ '&' + url[2] ;
+    window.location.href = url[0] + '&' + e.value + '&' + url[2];
 }
-function spc_to_plus(str){
+
+function spc_to_plus(str) {
     str = str.replace(/ /g, "+");
     return str;
 }
+
 function xoa_dau(str) {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
     str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -502,6 +514,31 @@ function xoa_dau(str) {
     return str;
 }
 //
+
+function scroll_to_top() {
+    var btn = document.getElementsByClassName('scroll_to_top')[0];
+    window.addEventListener('scroll', function () {
+        if (document.documentElement.scrollTop > 130) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+
+
+    btn.onclick = function () {
+        document.documentElement.scrollTop = 0;
+    };
+}
+
+(function(){
+    document.getElementsByTagName('body')[0].innerHTML += '    <div class="scroll_to_top">\
+        <div class="scroll_btn"></div>\
+    </div>';
+    
+})();
+
+//
 //chạy JS
 window.addEventListener('load', click_add_to_cart);
 
@@ -509,9 +546,11 @@ function gio_hang() {
     slide_show();
     load_gio_hang();
     fixedElement();
+    fixed_summary_section();
     create_left_menu();
     click_delete_cart();
     tinh_tong_tien();
+    scroll_to_top();
 }
 
 function thong_tin_sp() {
@@ -519,11 +558,13 @@ function thong_tin_sp() {
     slide_show();
     fixedElement();
     create_left_menu();
-    set_value_ttsp_them();
+    set_value_ttsp_them();    
+    scroll_to_top();
 }
 
 function trang_chinh() {
     var them = document.getElementsByClassName('them');
+    scroll_to_top();
     slide_show();
     fixedElement();
     create_left_menu();
@@ -542,4 +583,5 @@ function login() {
     fixedElement();
     go_to_content();
     create_left_menu();
+    scroll_to_top();
 }
