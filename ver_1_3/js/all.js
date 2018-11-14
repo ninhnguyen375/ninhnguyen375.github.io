@@ -19,9 +19,12 @@ for (var i = 0; i < 55; i++) {
         'image/phone/phone_' + (i + 1) + '.jpg' //- Hình sản phẩm
     );
 }
+
 //khởi tạo mảng sản phẩm laptop
 var laptop = new Array();
 for (var i = 0; i < 33; i++) {
+    //console.log('laptop['+i+'] = new san_pham('+i+',1,"Laptop '+(i+1)+'",'+(Math.floor((Math.random() * 100) + (1)))+',"image/laptop/laptop_' + (i + 1) + '.jpg");');
+
     laptop[i] = new san_pham(
         i,
         1,
@@ -111,7 +114,7 @@ function fixedElement() {
     var html = document.documentElement;
     var l_menu = document.getElementsByClassName('left_menu')[0];
     var nav = document.getElementsByClassName('nav')[0];
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
         if (html.scrollTop > 80) {
             nav.className = 'nav fixed_nav';
         } else {
@@ -243,10 +246,10 @@ function mo_tbdn() {
     var dangnhap = document.getElementById('yes');
     var tbdn = document.getElementById('thong-bao-dang-nhap');
     tbdn.style.display = 'block';
-    quaylai.onclick = function () {
+    quaylai.onclick = function() {
         tbdn.style.display = 'none';
     }
-    dangnhap.onclick = function () {
+    dangnhap.onclick = function() {
         var obj = {
             ten_tk: 'admin',
             mat_khau: 'admin'
@@ -266,7 +269,7 @@ function mo_tbdn() {
 function click_add_to_cart() {
     var them = document.getElementsByClassName('them');
     for (var i = 0; i < them.length; i++) {
-        them[i].addEventListener('click', function () {
+        them[i].addEventListener('click', function() {
             var info = this.value.split('&');
             var obj = {
                 danh_muc: info[1],
@@ -279,16 +282,22 @@ function click_add_to_cart() {
 }
 //xóa box_i trong localStorage
 function clear_box() {
-    for (var i = 0; i <= localStorage.length; i++) {
+    var temp = localStorage.length;
+    for (var i = 0; i < temp; i++) {
+        console.log('temp = ' + temp);
         if (localStorage.getItem('box_' + i)) {
             localStorage.removeItem('box_' + i);
         }
+        console.log('dele = ' + 'deleted_box_' + i);
+        localStorage.removeItem('deleted_box_' + i);
+
     }
 }
 //Load từ localStorage vào giỏ hàng
 function load_gio_hang() {
     var clear = document.getElementsByClassName('clear_all_cart')[0];
     var lclength = localStorage.length;
+
     // Ẩn hiện nút "Xóa tất cả sản phẩm"
     if (lclength <= 0) {
         clear.style.display = 'none';
@@ -297,7 +306,7 @@ function load_gio_hang() {
     }
 
     //Xóa dữ liệu trong localSt(trừ tài khoản) và load lại trang
-    clear.onclick = function () {
+    clear.onclick = function() {
         clear_box();
         location.reload();
     }
@@ -335,9 +344,6 @@ function load_gio_hang() {
         text-decoration:line-through">500.000.000đ</p>\
                     <p style="font-size:15px;color:rgb(79, 79, 79);margin:0;padding-top:10px; ">-90%</p>\
                 </div>'
-        } else {
-            //Cộng lên bù những box đã click xóa
-            //lclength++;
         }
     }
 
@@ -378,7 +384,7 @@ function xac_nhan_gio_hang() {
 function click_delete_cart() {
     var delete_cart = document.getElementsByClassName('delete-cart');
     for (var i = 0; i < delete_cart.length; i++) {
-        delete_cart[i].addEventListener('click', function () {
+        delete_cart[i].addEventListener('click', function() {
             if (confirm('Xác nhận xóa')) {
                 var key = this.getAttribute('data-delete');
                 var cart = document.getElementById(key);
@@ -408,7 +414,7 @@ function url_chi_tiet_sp() {
 
 function tinh_tong_tien() {
     var so_sp = localStorage.length;
-    if(localStorage.getItem('tai_khoan')) so_sp--;
+    if (localStorage.getItem('tai_khoan')) so_sp--;
     var gia_tien = document.getElementsByClassName('gia_tien');
     var tong_tien = document.getElementsByClassName('tong_tien');
     var sum = 0;
@@ -418,7 +424,7 @@ function tinh_tong_tien() {
     if (so_sp > 0) {
         tong_tien[0].innerHTML = sum + '.000.000đ';
         tong_tien[1].innerHTML = sum + '.000.000đ';
-    } 
+    }
     document.getElementById('dem_sp').innerHTML = 'Tạm tính (' + so_sp + ' sản phẩm):';
 }
 
@@ -492,7 +498,7 @@ function load_tim_kiem() {
         trang[i].className = 'so_trang';
     }
     for (var i = 0; i < trang.length; i++) {
-        trang[i].addEventListener('click', function () {
+        trang[i].addEventListener('click', function() {
             load_sp_tim_kiem_theo_trang(parseInt(this.value));
             go_to_content();
             document.getElementsByClassName('big_txt')[0].innerHTML =
@@ -578,7 +584,7 @@ function xoa_dau(str) {
 function scroll_to_top() {
 
     var btn = document.getElementsByClassName('scroll_to_top')[0];
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
         if (document.documentElement.scrollTop > 130) {
             btn.style.display = 'block';
         } else {
@@ -587,15 +593,15 @@ function scroll_to_top() {
     });
 
 
-    btn.onclick = function () {
+    btn.onclick = function() {
         document.documentElement.scrollTop = 0;
     };
 }
 
 function check_tai_khoan() {
-        var login = document.getElementById('login');
-        var dang_ky = document.getElementById('dang_ky');
-    if(localStorage.getItem('tai_khoan')){
+    var login = document.getElementById('login');
+    var dang_ky = document.getElementById('dang_ky');
+    if (localStorage.getItem('tai_khoan')) {
         var tk = JSON.parse(localStorage.getItem('tai_khoan'));
         login.innerHTML = tk.ten_tk;
         login.style.pointerEvents = 'none';
@@ -612,7 +618,8 @@ function check_tai_khoan() {
 
     }
 }
-window.addEventListener('load', function(e) {
+
+function auto_login() {
     document.getElementsByClassName('submit-dk')[0].addEventListener('click', function(e) {
         var obj = {
             ten_tk: 'admin',
@@ -624,7 +631,8 @@ window.addEventListener('load', function(e) {
         //tbdn.style.display = 'none';
         window.location = 'index.html';
     });
-});
+}
+
 //
 //chạy JS
 window.addEventListener('load', click_add_to_cart);
@@ -671,4 +679,5 @@ function login() {
     go_to_content();
     create_left_menu();
     scroll_to_top();
+    auto_login();
 }
