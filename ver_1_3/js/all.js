@@ -247,7 +247,6 @@ function mo_tbdn() {
         tbdn.style.display = 'none';
     }
     dangnhap.onclick = function () {
-
         var obj = {
             ten_tk: 'admin',
             mat_khau: 'admin'
@@ -494,15 +493,18 @@ function load_tim_kiem() {
     }
     for (var i = 0; i < trang.length; i++) {
         trang[i].addEventListener('click', function () {
-            console.log(this.value);
             load_sp_tim_kiem_theo_trang(parseInt(this.value));
             go_to_content();
             document.getElementsByClassName('big_txt')[0].innerHTML =
                 'YOUR SEARCH<span style="letter-spacing:0"> - PAGE - ' + (this.innerHTML) + '</span>';
+            for (var i = 0; i < trang.length; i++) trang[i].className = 'so_trang';
+            this.className = 'so_trang block_trang';
         });
     }
-    //Đưa vào vị trí 
+    //load trang đầu tiên
     load_sp_tim_kiem_theo_trang(0);
+    trang[0].className = 'so_trang block_trang';
+
     document.getElementsByClassName('small_txt')[0].innerHTML = 'KẾT QUẢ TÌM KIẾM (' + dem + ')';
     document.getElementsByClassName('khung_sp_header')[1].style.display = 'none';
     document.getElementsByClassName('thanh_tim_kiem_nang_cao')[0].style.display = 'block';
@@ -547,16 +549,7 @@ function search() {
     var search_content = document.getElementById('search_txt').value;
     window.location.href = 'index.html?search=' + spc_to_plus(xoa_dau(search_content)) + '&-1&-1';
 }
-//
-//function search_loai(e) {
-//    var url = window.location.href.split('&');
-//    window.location.href = url[0] + '&' + url[1] + '&' + e.value;
-//}
-//
-//function search_gia(e) {
-//    var url = window.location.href.split('&');
-//    window.location.href = url[0] + '&' + e.value + '&' + url[2];
-//}
+
 
 function spc_to_plus(str) {
     str = str.replace(/ /g, "+");
@@ -583,7 +576,6 @@ function xoa_dau(str) {
 //
 
 function scroll_to_top() {
-
 
     var btn = document.getElementsByClassName('scroll_to_top')[0];
     window.addEventListener('scroll', function () {
@@ -620,7 +612,19 @@ function check_tai_khoan() {
 
     }
 }
-
+window.addEventListener('load', function(e) {
+    document.getElementsByClassName('submit-dk')[0].addEventListener('click', function(e) {
+        var obj = {
+            ten_tk: 'admin',
+            mat_khau: 'admin'
+        };
+        localStorage.setItem('tai_khoan', JSON.stringify(obj));
+        alert('Chúng tôi đã tự động tạo tài khoản và đăng nhập dùm bạn.\n Bây giờ bạn có thể tự do mua sắm!');
+        //location.reload();
+        //tbdn.style.display = 'none';
+        window.location = 'index.html';
+    });
+});
 //
 //chạy JS
 window.addEventListener('load', click_add_to_cart);
