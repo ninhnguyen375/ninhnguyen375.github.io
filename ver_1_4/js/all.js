@@ -686,7 +686,7 @@ function dang_ky_func(e) {
         };
         localStorage.setItem('tai_khoan', JSON.stringify(obj));
         alert('Đăng ký thành công');
-        window.location = 'index.html';
+        window.location = 'login.html';
    // });
 }
 
