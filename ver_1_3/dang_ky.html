@@ -102,14 +102,14 @@
           <!--sdt-->
           <div class="item-dk">
             <p class="font-dk">Số điện thoại*</p>
-            <input class="input-l" type="text" name="phone" placeholder="Nhập số điện thoại của bạn">
+            <input id="sdt_id" class="input-l" type="text" name="phone" placeholder="Nhập số điện thoại của bạn">
           </div>
           <!--hết sdt-->
 
           <!--mật khẩu-->
           <div class="item-dk">
             <p class="font-dk">Mật khẩu*</p>
-            <input class="input-l" type="password" name="pass" placeholder="tối thiểu 6 ký tự">
+            <input id="mk_id" class="input-l" type="password" name="pass" placeholder="tối thiểu 6 ký tự">
           </div>
           <!--hết mật khẩu-->
 
@@ -118,18 +118,16 @@
             <!--ngay sinh-->
             <div class="item-ns">
               <p class="font-dk">Ngày sinh</p>
-              <input class="input-ns font-dk" type="date" name="ns">
+              <input id="ngay_sinh_id" class="input-ns font-dk" type="date" name="ns">
             </div>
             <!--hết ngay sinh-->
             <!--giới tính-->
             <div class="item-gt">
               <p class="font-dk">Giới tính</p>
-              <select class="gt font-dk" name="gt">
-                <section>
-                  <option class="" value="" checked>Chọn</option>
-                  <option value="Nam">Nam</option>
-                  <option value="nu">Nữ</option>
-                </section>
+              <select id="gioi_tinh_id" class="gt font-dk" name="gt">
+                  <option checked>Chọn</option>
+                  <option>Nam</option>
+                  <option>Nữ</option>
               </select>
             </div>
           </div>
@@ -142,14 +140,14 @@
           <!--ten-->
           <div class="item-dk">
             <p class="font-dk">Họ tên*</p>
-            <input type="text" class="input-l" placeholder="Họ tên" name="hoten">
+            <input id="ho_ten_id" type="text" class="input-l" placeholder="Họ tên" name="hoten">
           </div>
           <!--het tên-->
 
           <!--email-->
           <div class="item-dk">
             <p class="font-dk">Địa chỉ Email*</p>
-            <input type="email" class="input-l" placeholder="Vui lòng nhập email" name="email">
+            <input id="email_id" type="email" class="input-l" placeholder="Vui lòng nhập email" name="email">
           </div>
           <!--het email-->
           <!--dang ky-->

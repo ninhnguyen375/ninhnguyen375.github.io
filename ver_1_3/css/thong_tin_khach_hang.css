@@ -10,7 +10,6 @@
     transition: 0.3s;
     animation: fader;
     animation-duration: 0.5s;
-    /*animation-fill-mode: ease;*/
 }
 
 .content {
@@ -56,14 +55,10 @@
 
 @keyframe fader {
     from {
-        opacity: 0.0;
-        height: 100px;
-        width: 100px;
+        opacity: 0.0;		
     }
 
     to {
         opacity: 1;
-        width: 580px;
-        height: 420px;
     }
 }

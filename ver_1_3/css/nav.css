@@ -20,6 +20,7 @@
   text-align: center;
   text-decoration: none;
   line-height: 37px;
+  overflow: auto;
 }
 .nav a:hover{
   box-shadow: 1px 1px 3px black;
@@ -55,40 +56,3 @@
 .fixed_nav #dia_diem{
   margin-top: 10px;
 }
-/* .fixed_nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: rgb(244, 244, 244);
-  box-shadow: 2px 2px 5px black;
-  text-align: right;
-  z-index: 10;
-  padding: 10px;
-  border-radius: 15px 0 0 15px;
-}
-.fixed_nav *{font-size: 15PX;}
-.fixed_nav a {
-  margin: 5px 10px 0 10px;
-  display: inline-block;
-  text-decoration: none;
-  color: gray;
-  transition: 0.5s;
-}
-.fixed_nav a:hover{
-  text-decoration: underline;
-}
-.fixed_nav #dia_diem {
-  margin: 5px 5px 0 5px;
-  float: left;
-  text-align: left;
-  width: 500px;
-  display: inline-block;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.fixed_nav #dia_diem span {
-  display: inline-block;
-  color: gray;
-  text-indent: 5px;
-} */

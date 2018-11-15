@@ -249,8 +249,9 @@ function mo_tbdn() {
     quaylai.onclick = function() {
         tbdn.style.display = 'none';
     }
+    //auto_login(dangnhap);
+    //
     // dangnhap.onclick = function() {
-    auto_login(dangnhap);
     // var obj = {
     //     ten_tk: 'admin',
     //     mat_khau: 'admin'
@@ -599,57 +600,81 @@ function scroll_to_top() {
     };
 }
 
+function dang_nhap_fuc() {
+    document.getElementsByClassName('submit')[0].addEventListener('click', function() {
+        console.log('it run');
+        var n = document.getElementById('input_name').value;
+        var p = document.getElementById('input_pass').value;
+        var tk = localStorage.getItem('tai_khoan');
+        tk = JSON.parse(tk);
+        if ((n == tk.email || n == tk.sdt) && p == tk.mat_khau) {
+            tk.trang_thai_dang_nhap = 1;
+            localStorage.setItem('tai_khoan',JSON.stringify(tk));
+            alert('Đăng nhập thành công');
+            window.location = 'index.html';
+        }
+        else{
+            console.log('Tài khoản không tồn tại');
+        }
+    });
+
+}
+
 function check_tai_khoan() {
     var login = document.getElementById('login');
     var dang_ky = document.getElementById('dang_ky');
     if (localStorage.getItem('tai_khoan')) {
         var tk = JSON.parse(localStorage.getItem('tai_khoan'));
-        login.innerHTML = tk.ten_tk;
-        //       login.style.pointerEvents = 'none';
-        login.style.color = '#ff9a00';
-        login.style.fontWeight = 'bold';
-        login.style.borderBottom = '2px solid #ff9a00';
-        login.setAttribute('href', '#');
-        login.setAttribute('title', 'Xin Chào ' + JSON.parse(localStorage.getItem('tai_khoan')).ten_tk);
-        login.addEventListener('click', function(e) {
-            document.getElementsByClassName('thong_tin_khach_hang')[0].style.display = 'block';
-            document.getElementsByClassName('user')[0].innerHTML = tk.ten_tk;
-            document.getElementsByClassName('ho_ten')[0].innerHTML = 'HỌ TÊN :    ' + tk.ho_ten;
-            document.getElementsByClassName('email')[0].innerHTML = 'EMAIL :    ' + tk.email;
-            document.getElementsByClassName('gioi_tinh')[0].innerHTML = 'GIỚI TÍNH :    ' + tk.gioi_tinh;
-            document.getElementsByClassName('sdt')[0].innerHTML = 'SỐ ĐT :    ' + tk.sdt;
-            document.getElementsByClassName('ngay_sinh')[0].innerHTML = 'NGÀY SINH :    ' + tk.ngay_sinh;
+        if (tk.trang_thai_dang_nhap == 1) {
+            login.innerHTML = tk.ten_tk;
+            //       login.style.pointerEvents = 'none';
+            login.style.color = '#ff9a00';
+            login.style.fontWeight = 'bold';
+            login.style.borderBottom = '2px solid #ff9a00';
+            login.setAttribute('href', '#');
+            login.setAttribute('title', 'Xin Chào ' + JSON.parse(localStorage.getItem('tai_khoan')).ten_tk);
+            login.addEventListener('click', function(e) {
+                document.getElementsByClassName('thong_tin_khach_hang')[0].style.display = 'block';
+                document.getElementsByClassName('user')[0].innerHTML = tk.ten_tk;
+                document.getElementsByClassName('ho_ten')[0].innerHTML = 'HỌ TÊN :    ' + tk.ho_ten;
+                document.getElementsByClassName('email')[0].innerHTML = 'EMAIL :    ' + tk.email;
+                document.getElementsByClassName('gioi_tinh')[0].innerHTML = 'GIỚI TÍNH :    ' + tk.gioi_tinh;
+                document.getElementsByClassName('sdt')[0].innerHTML = 'SỐ ĐT :    ' + tk.sdt;
+                document.getElementsByClassName('ngay_sinh')[0].innerHTML = 'NGÀY SINH :    ' + tk.ngay_sinh;
 
-            document.getElementsByClassName('btn_x')[0].addEventListener('click', function(e) {
-                document.getElementsByClassName('thong_tin_khach_hang')[0].style.display = 'none';
+                document.getElementsByClassName('btn_x')[0].addEventListener('click', function(e) {
+                    document.getElementsByClassName('thong_tin_khach_hang')[0].style.display = 'none';
+                });
+
             });
 
-        });
-
-        dang_ky.innerHTML = 'ĐĂNG XUẤT';
-        dang_ky.setAttribute('href', '');
-        dang_ky.addEventListener('click', function(e) {
-            localStorage.removeItem('tai_khoan');
-            location.reload();
-        });
-
+            dang_ky.innerHTML = 'ĐĂNG XUẤT';
+            dang_ky.setAttribute('href', '');
+            dang_ky.addEventListener('click', function(e) {
+                tk.trang_thai_dang_nhap = 0;
+                localStorage.setItem('tai_khoan', JSON.stringify(tk));
+                //localStorage.removeItem('tai_khoan');
+                location.reload();
+            });
+        }
 
     }
 }
 
-function auto_login(e) {
+function dang_ky_func(e) {
     e.addEventListener('click', function(e) {
         var obj = {
-            ten_tk: 'USER X',
-            mat_khau: 'admin',
-            gioi_tinh: 'gay',
-            sdt: '6969696969',
-            ho_ten: 'Đẹp Trai Vô Địch',
-            email: 'admin@gmail.com',
-            ngay_sinh: new Date('July 05, 1999 00:00:00')
+            ten_tk: document.getElementById('ho_ten_id').value,
+            mat_khau: document.getElementById('mk_id').value,
+            gioi_tinh: document.getElementById('gioi_tinh_id').value,
+            sdt: document.getElementById('sdt_id').value,
+            ho_ten: document.getElementById('ho_ten_id').value,
+            email: document.getElementById('email_id').value,
+            ngay_sinh: document.getElementById('ngay_sinh_id').value,
+            trang_thai_dang_nhap: 0
         };
         localStorage.setItem('tai_khoan', JSON.stringify(obj));
-        alert('Chúng tôi đã tự động tạo tài khoản và đăng nhập dùm bạn.\n Bây giờ bạn có thể tự do mua sắm!');
+        alert('Đăng ký thành công');
         window.location = 'index.html';
     });
 }
@@ -700,6 +725,7 @@ function login() {
     go_to_content();
     create_left_menu();
     scroll_to_top();
+    dang_nhap_fuc();
 }
 //
 function dang_ky() {
@@ -708,5 +734,5 @@ function dang_ky() {
     go_to_content();
     create_left_menu();
     scroll_to_top();
-    auto_login(document.getElementsByClassName('submit-dk')[0]);
+    dang_ky_func(document.getElementsByClassName('submit-dk')[0]);
 }
