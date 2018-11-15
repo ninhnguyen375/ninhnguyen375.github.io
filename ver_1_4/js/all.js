@@ -620,13 +620,15 @@ function check_tai_khoan() {
             login.style.borderBottom = '2px solid #ff9a00';
             login.setAttribute('href', '#');
             login.setAttribute('title', 'Xin Chào ' + JSON.parse(localStorage.getItem('tai_khoan')).ten_tk);
+
             login.addEventListener('click', function(e) {
+            	console.log('run 444');
                 document.getElementsByClassName('thong_tin_khach_hang')[0].style.display = 'block';
                 document.getElementsByClassName('user')[0].innerHTML = tk.ten_tk;
                 document.getElementsByClassName('ho_ten')[0].innerHTML = 'HỌ TÊN :    ' + tk.ho_ten;
                 document.getElementsByClassName('email')[0].innerHTML = 'EMAIL :    ' + tk.email;
                 document.getElementsByClassName('gioi_tinh')[0].innerHTML = 'GIỚI TÍNH :    ' + tk.gioi_tinh;
-                document.getElementsByClassName('sdt')[0].innerHTML = 'SỐ ĐT :    ' + tk.sdt;
+                document.getElementsByClassName('sdt')[0].innerHTML = 'SỐ ĐIỆN THOẠI :    ' + tk.sdt;
                 document.getElementsByClassName('ngay_sinh')[0].innerHTML = 'NGÀY SINH :    ' + tk.ngay_sinh;
 
                 document.getElementsByClassName('btn_x')[0].addEventListener('click', function(e) {
