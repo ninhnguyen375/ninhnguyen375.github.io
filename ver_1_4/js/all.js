@@ -252,7 +252,7 @@ function mo_tbdn() {
     //auto_login(dangnhap);
     //
     dangnhap.onclick = function() {
-        window.location =  'login.html';
+        window.location = 'login.html';
     };
     // localStorage.setItem('tai_khoan', JSON.stringify(obj));
     // alert('Chúng tôi đã tự động tạo tài khoản và đăng nhập dùm bạn.\n Bây giờ bạn có thể tự do mua sắm!');
@@ -369,19 +369,19 @@ function reload() {
 //Khi click nút xác nhận giỏ hàng
 function xac_nhan_gio_hang() {
     var tk = JSON.parse(localStorage.getItem('tai_khoan'));
-    if (!localStorage.getItem('tai_khoan')) {
+    if (!localStorage.getItem('tai_khoan') || tk.trang_thai_dang_nhap == 0) {
         mo_tbdn();
     } else
-    if(tk.trang_thai_dang_nhap == 0){
-        mo_tbdn();
-    }
-    if (localStorage.length > 1) {
-        clear_box();
-        alert('Thành công!\nCảm ơn bạn đã mua hàng của chúng tôi');
-        location.reload();
-    } else {
-        alert('Giỏ hàng rỗng');
-    }
+        // if(tk.trang_thai_dang_nhap == 0){
+        //     mo_tbdn();
+        // }
+        if (localStorage.length > 1) {
+            clear_box();
+            alert('Thành công!\nCảm ơn bạn đã mua hàng của chúng tôi');
+            location.reload();
+        } else {
+            alert('Giỏ hàng rỗng');
+        }
 }
 
 
@@ -622,7 +622,7 @@ function check_tai_khoan() {
             login.setAttribute('title', 'Xin Chào ' + JSON.parse(localStorage.getItem('tai_khoan')).ten_tk);
 
             login.addEventListener('click', function(e) {
-            	console.log('run 444');
+                console.log('run 444');
                 document.getElementsByClassName('thong_tin_khach_hang')[0].style.display = 'block';
                 document.getElementsByClassName('user')[0].innerHTML = tk.ten_tk;
                 document.getElementsByClassName('ho_ten')[0].innerHTML = 'HỌ TÊN :    ' + tk.ho_ten;
@@ -649,9 +649,10 @@ function check_tai_khoan() {
 
     }
 }
+
 function dang_nhap_fuc() {
-   // document.getElementsByClassName('submit')[0].addEventListener('click', function() {
-    if(localStorage.getItem('tai_khoan')){
+    // document.getElementsByClassName('submit')[0].addEventListener('click', function() {
+    if (localStorage.getItem('tai_khoan')) {
         var n = document.getElementById('dangnhap').value;
         var p = document.getElementById('matkhau').value;
         var tk = localStorage.getItem('tai_khoan');
@@ -664,32 +665,33 @@ function dang_nhap_fuc() {
         } else {
             alert('Tài khoản không tồn tại');
         }
-    }else{
+    } else {
         alert('Tài khoản không tồn tại');
-    }    
+    }
     //});
 
 }
-function dang_ky_func(e) {
-   // e.addEventListener('click', function(e) {
-        var ngay = document.getElementById('ngay').value;
-        var thang = document.getElementById('thang').value;
-        var nam = document.getElementById('nam').value;
 
-        var obj = {
-            ten_tk: document.getElementById('hoten').value,
-            mat_khau: document.getElementById('pass').value,
-            gioi_tinh: document.getElementById('sex').value,
-            sdt: document.getElementById('phone').value,
-            ho_ten: document.getElementById('hoten').value,
-            email: document.getElementById('email').value,
-            ngay_sinh: ngay + '/' + thang + '/' + nam,
-            trang_thai_dang_nhap: 0
-        };
-        localStorage.setItem('tai_khoan', JSON.stringify(obj));
-        alert('Đăng ký thành công');
-        window.location = 'login.html';
-   // });
+function dang_ky_func(e) {
+    // e.addEventListener('click', function(e) {
+    var ngay = document.getElementById('ngay').value;
+    var thang = document.getElementById('thang').value;
+    var nam = document.getElementById('nam').value;
+
+    var obj = {
+        ten_tk: document.getElementById('hoten').value,
+        mat_khau: document.getElementById('pass').value,
+        gioi_tinh: document.getElementById('sex').value,
+        sdt: document.getElementById('phone').value,
+        ho_ten: document.getElementById('hoten').value,
+        email: document.getElementById('email').value,
+        ngay_sinh: ngay + '/' + thang + '/' + nam,
+        trang_thai_dang_nhap: 0
+    };
+    localStorage.setItem('tai_khoan', JSON.stringify(obj));
+    alert('Đăng ký thành công');
+    window.location = 'login.html';
+    // });
 }
 
 //
@@ -705,6 +707,7 @@ function gio_hang() {
     click_delete_cart();
     tinh_tong_tien();
     scroll_to_top();
+    go_to_content();
 }
 
 function thong_tin_sp() {
@@ -738,7 +741,7 @@ function login() {
     go_to_content();
     create_left_menu();
     scroll_to_top();
-   // dang_nhap_fuc();
+    // dang_nhap_fuc();
 }
 //
 function dang_ky() {
