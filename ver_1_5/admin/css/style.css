@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-size: 16px;
+    font-family: opensans;
+    outline: none;
+}
+
+@font-face {
+    font-family: "opensans";
+    src: url('../fonts/Open_Sans/OpenSans-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "opensans";
+    src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+
+.nav_bar {
+    width: 100%;
+    height: 50px;
+    background: rgb(240, 240, 240);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid gray;
+}
+
+.left_menu {
+    width: 17%;
+    height: 100%;
+    background: rgb(230, 230, 230);
+    position: fixed;
+    top: 52px;
+    left: 0;
+}
+.left_menu div{
+	width: 100%;
+	padding: 20px;
+	cursor: pointer;
+}
+.left_menu div:hover{
+	background: rgba(255,255,255,0.6);
+	color: gray;
+}
+.left_menu a{
+	text-decoration: none;
+	color: black;
+}
+.nav_bar .title{
+	font-size: 25px;
+	color: gray;
+	font-weight: bold;
+	letter-spacing: 2px;
+	line-height: 43px;
+	margin-left: 10px;
+}
+.content {
+	margin-top: 52px;
+	margin-left: 17%;
+	min-height: 92vh;
+}
+.ten_admin,.dang_xuat{
+	float: right;
+	line-height: 47px;
+	margin-right: 10px;
+	text-decoration: none;
+	color: blue;
+}
+.ten_admin{
+	font-size: 18px;
+	line-height: 45px;
+	color: black;
+	margin-right: 10px;
+}
+.active{
+	background: rgba(255,255,255,0.6);
+	color: gray;
+	pointer-events: none;
+}
+.list_the_sp{
+	width: 700px;
+	margin-top: 30px;
+	margin-left: 10px;
+}
+.the_sp div,img{
+	float: left;
+}
+.the_sp{
+	width: 350px;
+	float: left;
+	margin-top: 10px;
+}
+.thong_tin{
+	padding-left: 10px;
+}
+
+.chuyen_trang {
+    height: 40px;
+    padding: 10px 0 30px 0;
+    text-align: center;
+}
+
+.so_trang {
+    display: inline-block;
+    padding: 8px 15px 8px 15px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgb(227, 227, 227);
+    background: white;
+}
+
+.so_trang:hover {
+    background: rgb(231, 231, 231);
+    color: black;
+    transition: 0.3s;
+}
+
+.block_trang {
+    background: #90b532;
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+    border: 1px solid #a1cb37;
+}
+.them_item{
+	width: 350px;
+	display: block;
+	float: right;
+	margin-top: 30px;
+	overflow: hidden;
+	position: fixed;
+	top: 40px;
+	right: 0;
+}
+.them_item input{
+	width: 234px;
+}
+
