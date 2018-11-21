@@ -1,5 +1,43 @@
+function DonHang(khach_hang, thoi_diem, tong_tien, tinh_trang) {
+    this.khach_hang = khach_hang;
+    this.thoi_diem = thoi_diem;
+    this.tong_tien = tong_tien;
+    this.tinh_trang = tinh_trang;
+}
+function TheLoai(khach_hang, thoi_diem, tong_tien, tinh_trang) {
+    this.khach_hang = khach_hang;
+    this.thoi_diem = thoi_diem;
+    this.tong_tien = tong_tien;
+    this.tinh_trang = tinh_trang;
+}
+function QuanLy(khach_hang, thoi_diem, tong_tien, tinh_trang) {
+    this.khach_hang = khach_hang;
+    this.thoi_diem = thoi_diem;
+    this.tong_tien = tong_tien;
+    this.tinh_trang = tinh_trang;
+}
+var donhang = new Array();
+for (var i = 0; i < 10; i++) {
+    donhang[i] = new DonHang('nguyen van b '+i,'22/08/2008',200000000,'chua giao');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function load_product() {
-    console.log(window.location.href);
     var main = document.getElementsByClassName('list_the_sp')[0];
     var vt = parseInt(window.location.href.split('vitri=')[1]);
     var dem = 0;
@@ -74,11 +112,48 @@ function xoa_mot_the_loai(e, i) {
         }
     });
 }
+
+function load_don_hang() {
+    for (var i = 0; i < donhang.length; i++) {
+        if(i%2==0){
+            document.getElementsByClassName('table_ql_don_hang')[0].innerHTML += '\
+                    <tr style="background : #EAEAEA">\
+                        <td>'+donhang[i].khach_hang+'</td>\
+                        <td>25/5/2016</td>\
+                        <td>200.000.000đ</td>\
+                        <td>Chưa giao</td>\
+                    </tr>';
+        }
+        else{
+            document.getElementsByClassName('table_ql_don_hang')[0].innerHTML += '\
+                    <tr>\
+                        <td>'+donhang[i].khach_hang+'</td>\
+                        <td>25/5/2016</td>\
+                        <td>200.000.000đ</td>\
+                        <td>Chưa giao</td>\
+                    </tr>';
+        }
+    }
+    document.getElementsByClassName('table_ql_don_hang')[0].innerHTML += '\
+                <tr>\
+                    <td colspan="5" align="right" style="color: red;background: white;outline: 1px solid #EAEAEA;">Tổng tiền : 800.000.000 VND</td>\
+                </tr>';
+}
+
+//chay js
 window.addEventListener('load', function() {
-    if (window.location.href.indexOf('admin.html?tat_ca_sp&vitri') != -1) {
+    var url = window.location.href;
+    if (url.indexOf('admin.html?tat_ca_sp&vitri') != -1) {
         load_product();
         xoa_item();
-    } else {
+    }
+    if(url.indexOf('the_loai.html') != -1){
         xoa_the_loai();
+    }
+    if(url.indexOf('quan_ly.html') != -1){
+        xoa_the_loai();
+    }
+    if(url.indexOf('don_hang.html') != -1){
+        load_don_hang();
     }
 })
