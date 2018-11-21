@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+ 
+<body>
+    <div class="wrapper">
+        <div class="nav_bar">
+            <span class="title">WORLD PHONE - ADMIN AREA</span>
+            <a href="#" class="dang_xuat">SIGN OUT</a>
+            <span class="ten_admin">NINH NGUYEN</span>
+        </div>
+        <div class="left_menu">
+            <a href="admin.html?tat_ca_sp&vitri=0"><div class="tat_ca_sp active">TẤT CẢ SẢN PHẨM</div></a>
+            <a href="the_loai.html"><div class="the_loai">THỂ LOẠI</div></a>
+            <a href="don_hang.html"><div class="don_hang">ĐƠN HÀNG</div></a>
+            <a href="quan_ly.html"><div class="quan_ly">QUẢN LÝ USER</div></a>
+            <!-- <a href="thong_ke.html"><div class="thong_ke">CHI TIET DON</div></a> -->
+        </div>
+        <!-- content -->
+        <div class="content">
+
+
+
+            <!-- for them san pham -->
+            <table class="them_sp them_item">
+            	<tr><td colspan="2">THÊM SẢN PHẨM</td></tr>
+            	<tr>
+            		<td style="width: 80px;display: inline-block;">TÊN :</td>
+            		<td><input type="text" name="them_ten"></td>
+            	</tr>
+            	<tr>
+            		<td> GIÁ :</td>
+            		<td><input type="text" name="them_gia"></td>
+            	</tr>
+            	<tr>
+            		<td> HÌNH :</td>
+            		<td><input type="file" name="them_hinh"></td>
+            	</tr>
+            	<tr>
+            		<td> THỨ TỰ :</td>
+            		<td><input type="text" name="them_thu_tu"></td>
+            	</tr>
+            	<tr>
+            		<td> LOẠI SP :</td>
+            		<td><input type="text" name="them_loai"></td>
+            	</tr>
+            	<tr>
+            		<th colspan="2"><input onclick="alert('Them thanh cong!')" id="them_sp_btn" type="button" value="THÊM"></th>
+            	</tr>
+            </table>
+
+
+			
+
+			
+            <div class="list_the_sp"></div>
+
+            <!--phần khung dùng để chứa số trang-->
+            <div class="chuyen_trang clear_both"></div>
+        </div>
+    </div>
+    <script src="../js/all.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
