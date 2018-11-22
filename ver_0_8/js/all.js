@@ -17,6 +17,7 @@ function slide_show() {
             so_slide++;
         dot[so_slide - 1].className = 'dot dot_active';
         slides[so_slide - 1].style.display = "block";
+
         setTimeout(showSlides, 2000); // Change image every 2 seconds
 
     }
@@ -38,7 +39,7 @@ function fixedElement() {
     var html = document.documentElement;
     var l_menu = document.getElementsByClassName('left_menu')[0];
     var nav = document.getElementsByClassName('nav')[0];
-    window.onscroll = function () {
+    window.onscroll = function() {
         if (html.scrollTop > 80) {
             nav.className = 'nav fixed_nav';
         } else {
@@ -270,10 +271,10 @@ function mo_tbdn() {
     var dangnhap = document.getElementById('yes');
     var tbdn = document.getElementById('thong-bao-dang-nhap');
     tbdn.style.display = 'block';
-    quaylai.onclick = function () {
+    quaylai.onclick = function() {
         tbdn.style.display = 'none';
     }
-    dangnhap.onclick = function () {
+    dangnhap.onclick = function() {
         window.location = 'login.html';
     }
 };
@@ -281,7 +282,7 @@ function mo_tbdn() {
 function click_add_to_cart() {
     var them = document.getElementsByClassName('them');
     for (var i = 0; i < them.length; i++) {
-        them[i].addEventListener('click', function () {
+        them[i].addEventListener('click', function() {
             var info = this.value.split('&');
             var obj = {
                 danh_muc: info[1],
@@ -300,7 +301,7 @@ function load_gio_hang() {
     } else {
         clear.style.display = 'block';
     }
-    clear.onclick = function () {
+    clear.onclick = function() {
         localStorage.clear();
         window.location = 'gio_hang.html';
     }
@@ -355,7 +356,7 @@ function load_gio_hang() {
         text-decoration:line-through">20.000.000đ</p>\
                     <p style="font-size:15px;color:rgb(79, 79, 79);margin:0;padding-top:10px; ">-90%</p>\
                 </div>'
-        }else{
+        } else {
             lclength++;
             console.log('else run');
         }
@@ -366,10 +367,10 @@ function load_gio_hang() {
 function click_delete_cart() {
     var delete_cart = document.getElementsByClassName('delete-cart');
     for (var i = 0; i < delete_cart.length; i++) {
-        delete_cart[i].addEventListener('click', function () {
+        delete_cart[i].addEventListener('click', function() {
             localStorage.removeItem(this.getAttribute('data-delete'));
             location.reload();
-          //  load_gio_hang();
+            //  load_gio_hang();
         });
     }
 }
