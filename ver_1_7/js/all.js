@@ -300,7 +300,7 @@ phu_kien[32] = new san_pham("phu_kien32", 4, "Cáp Lightning 1m Xmobile", 29, "i
 var list_danh_muc = [phone, laptop, camera, pad, phu_kien];
 
 
-//NOTE: Giá tiền random trong hàng chục. Chuỗi .000.000đ chỉ để cho vui thôi ^_^!
+//NOTE: Giá tiền random trong hàng chục. Chuỗi .000.000đ chỉ để cho vui ^_^!
 //------------------------KHỞI TẠO HOÀN TẤT--------------------------
 
 
@@ -708,7 +708,7 @@ function load_tim_kiem() {
                 document.getElementsByClassName('list_sp')[0].innerHTML += '<div class="product-box">\
                       <a class="box" href="thong_tin_sp.html?' + j + '&' + i + '">\
                         <div class="hinh-sp">\
-                          <div style="background-image: url(' + list[j].hinh + ')" class="hinh"></div>\
+                          <img src="' + list[j].hinh + '" class="hinh"></img>\
                         </div>\
                         <p class="ten-sp">' + list[j].tensp + '</p>\
                         <p class="gia-tien">' + list[j].gia + '.000.000đ<span class="gia-cu">500.000.000đ</span></p>\
@@ -718,7 +718,7 @@ function load_tim_kiem() {
             }
         }
     }
-
+    fixed_product_title();
     so_trang = Math.ceil(dem / 12);
     for (var i = 1; i <= so_trang; i++) {
         vt = (i - 1) * 12;
@@ -939,6 +939,8 @@ function fixed_product_title() {
         if (a[i].clientHeight >= 35 || a[i].offsetHeight >= 35) {
             a[i].className += ' fixed_title';
             document.getElementsByClassName('hinh')[i].style.height = '200px';
+            console.log(a[i]);
+            console.log('run');
         }
     }
 }
