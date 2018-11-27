@@ -13,7 +13,7 @@ function check() {
     var pass = document.getElementById('pass');
     for (var i = 0; i < admin.length; i++) {
         if (email.value === admin[i].email && pass.value === admin[i].pass) {
-            return true;
+            window.location = 'admin.html?tat_ca_sp&vitri=0';
         }
     }
     if (email.value === '') {
@@ -27,5 +27,5 @@ function check() {
         alert('Tài khoản không tồn tại');
 
     }
-    return false;
+    // return false;
 }
