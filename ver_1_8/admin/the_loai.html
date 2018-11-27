@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="nav_bar">
+                <span class="title">WORLD PHONE - ADMIN AREA</span>
+                <a href="#" class="dang_xuat">SIGN OUT</a>
+                <span class="ten_admin">NINH NGUYEN</span>
+            </div>
+            <div class="left_menu">
+                <a href="admin.html?tat_ca_sp&vitri=0"><div class="tat_ca_sp">TẤT CẢ SẢN PHẨM</div></a>
+                <a href="the_loai.html"><div class="the_loai active">THỂ LOẠI</div></a>
+                <a href="don_hang.html"><div class="don_hang">ĐƠN HÀNG</div></a>
+                <a href="quan_ly.html"><div class="quan_ly">QUẢN LÝ USER</div></a>
+                <!-- <a href="thong_ke.html"><div class="thong_ke">THỐNG KÊ</div></a> -->
+            </div>
+            <!-- content -->
+            <div class="content">
+                <!-- for them the loai -->
+                <table class="them_the_loai them_item">
+                    <tr>
+                        <td colspan="2">THEM THE LOAI</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 80px;display: inline-block;">TEN :</td>
+                        <td><input type="text" name="them_ten"></td>
+                    </tr>
+                    <tr>
+                        <td>GIA :</td>
+                        <td><input type="text" name="them_gia"></td>
+                    </tr>
+                    <tr>
+                        <td>HINH :</td>
+                        <td><input type="file" name="them_hinh"></td>
+                    </tr>
+                    <tr>
+                        <td>THU TU :</td>
+                        <td><input type="text" name="them_thu_tu"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><input id="them_sp_btn" onclick="alert('Them thanh cong!')" style="width: 100px" type="button" value="THEM"></th>
+                    </tr>
+                </table>
+                <table class="table_the_loai">
+                    <tr>
+                        <th colspan="5">DANH SÁCH THỂ LOẠI</th>
+                    </tr>
+                    <tr style="background: #6CB6EA; color: white;text-shadow: 1px 1px 2px gray">
+                        <td style="padding: 5px 0 5px 0;">STT</td>
+                        <td>TÊN THỂ LOẠI</td>
+                        <td>THỨ TỰ</td>
+                        <td>HIỂN THỊ</td>
+                        <td>XOÁ</td>
+                    </tr>
+                    <tr class="tr">
+                        <td>1</td>
+                        <td>Điện thoại</td>
+                        <td>1</td>
+                        <td>Yes</td>
+                        <th><input type="button" class="xoa_the_loai" value="&times"></th>
+                    </tr>
+                    <tr class="tr" style="background: #EAEAEA">
+                        <td>2</td>
+                        <td>Laptop</td>
+                        <td>2</td>
+                        <td>Yes</td>
+                        <th><input type="button" class="xoa_the_loai" value="&times"></th>
+                    </tr>
+                    <tr class="tr">
+                        <td>3</td>
+                        <td>Máy ảnh</td>
+                        <td>3</td>
+                        <td>Yes</td>
+                        <th><input type="button" class="xoa_the_loai" value="&times"></th>
+                    </tr>
+                    <tr class="tr" style="background: #EAEAEA">
+                        <td>4</td>
+                        <td>Máy tính bảng</td>
+                        <td>4</td>
+                        <td>Yes</td>
+                        <th><input type="button" class="xoa_the_loai" value="&times"></th>
+                    </tr>
+                    <tr class="tr">
+                        <td>5</td>
+                        <td>Phụ kiện</td>
+                        <td>5</td>
+                        <td>Yes</td>
+                        <th><input type="button" class="xoa_the_loai" value="&times"></th>
+                    </tr>
+                </table>
+                <!--phần khung dùng để chứa số trang-->
+                <div class="chuyen_trang clear_both"></div>
+            </div>
+        </div>
+        <script src="../js/all.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
