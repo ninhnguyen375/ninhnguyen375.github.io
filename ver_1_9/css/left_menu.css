@@ -1,0 +1,48 @@
+.left_menu {
+  width: 250px;
+}
+
+.wrap_left_menu {
+  width: 250px;
+  margin-top: 75px;
+  float: left;
+}
+
+.left_menu a {
+  text-decoration: none;
+  color: gray;
+}
+
+.left_menu_header {
+  width: 220px;
+  text-align: center;
+  background: ;
+  background: #f4f4f4;
+  font-weight: bold;
+  padding: 12px 0 12px 0;
+  color: rgb(80, 80, 80);
+  box-shadow:  1px 1px 3px black;
+  border-radius: 10px;
+}
+
+.danh_muc_item {
+  padding: 10px 0 10px 0;
+  width: 190px;
+  text-indent: 30px;
+  text-align: left;
+  transition: 0.3s;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(179, 179, 179);
+  border-top: 0;
+}
+
+.danh_muc_item:hover {
+  margin-left: 30px;
+}
+
+.fixed_left_menu {
+  position: fixed;
+  left: inherit;
+  z-index: 10;
+  top:5px;
+}
