@@ -12,43 +12,43 @@ var list_tieu_de = ["THE BEST PHONE", "THE BEST LAPTOP", "THE BEST CAMERA", "THE
 //
 
 
- var list_danh_muc = ['phone', 'laptop', 'camera', 'pad', 'phu-kien'];
- var a = document.querySelectorAll('.homeproduct h3');
- var b = document.querySelectorAll('.homeproduct img[width="180"]');
- var s = '';
- var d = 0;
- var newW = window.open();
- // tl - Sửa theo danh mục -- 0,1,2,3,4
- var tl = 0;
+//  var list_danh_muc = ['phone', 'laptop', 'camera', 'pad', 'phu-kien'];
+//  var a = document.querySelectorAll('.homeproduct h3');
+//  var b = document.querySelectorAll('.homeproduct img[width="180"]');
+//  var s = '';
+//  var d = 0;
+//  var newW = window.open();
+//  // tl - Sửa theo danh mục -- 0,1,2,3,4
+//  var tl = 0;
 
- for (var i = 0; i < a.length && d < 55; i++) {
-     s += list_danh_muc[tl] + '[' + d + '] = new san_pham("' + list_danh_muc[tl] + d + '", ' + tl + ', "' + a[i].innerHTML + '", ' + Math.floor((Math.random() * 100) + (1)) + ', "image/' + list_danh_muc[tl] + '/' + b[d].getAttribute('src').split('/')[7] + '");' + '</br>';
-     d++;
- }
- newW.document.write(s);
+//  for (var i = 0; i < a.length && d < 55; i++) {
+//      s += list_danh_muc[tl] + '[' + d + '] = new san_pham("' + list_danh_muc[tl] + d + '", ' + tl + ', "' + a[i].innerHTML + '", ' + Math.floor((Math.random() * 100) + (1)) + ', "image/' + list_danh_muc[tl] + '/' + b[d].getAttribute('src').split('/')[7] + '");' + '</br>';
+//      d++;
+//  }
+//  newW.document.write(s);
 
- // //Đưa ảnh ra 1 trang để down cho nhanh
- var b = document.querySelectorAll('.homeproduct img[width="180"]');
- var newW = window.open();
- for (var i = 0; i < 55; i++) {
-     newW.document.documentElement.innerHTML += '<img id="fullsized_image_holder" src="' + b[i].getAttribute('src') + '" height="100px" width="100px">';
- }
- //
- //
- var list_danh_muc = ['phone', 'laptop', 'camera', 'pad', 'phu-kien'];
- var a = document.querySelectorAll('.pro-name h3');
- var b = document.querySelectorAll('.pro-img img');
- var s = '';
- var d = 0;
- var newW = window.open();
- // tl - Sửa theo danh mục -- 0,1,2,3,4
- var tl = 2;
+//  // //Đưa ảnh ra 1 trang để down cho nhanh
+//  var b = document.querySelectorAll('.homeproduct img[width="180"]');
+//  var newW = window.open();
+//  for (var i = 0; i < 55; i++) {
+//      newW.document.documentElement.innerHTML += '<img id="fullsized_image_holder" src="' + b[i].getAttribute('src') + '" height="100px" width="100px">';
+//  }
+//  //
+//  //
+//  var list_danh_muc = ['phone', 'laptop', 'camera', 'pad', 'phu-kien'];
+//  var a = document.querySelectorAll('.pro-name h3');
+//  var b = document.querySelectorAll('.pro-img img');
+//  var s = '';
+//  var d = 0;
+//  var newW = window.open();
+//  // tl - Sửa theo danh mục -- 0,1,2,3,4
+//  var tl = 2;
 
- for (var i = 0; i < a.length && d < 55; i++) {
-     s += list_danh_muc[tl] + '[' + d + '] = new san_pham("' + list_danh_muc[tl] + d + '", ' + tl + ', "' + a[i].innerHTML + '", ' + Math.floor((Math.random() * 100) + (1)) + ', "image/' + list_danh_muc[tl] + '/' + b[d].getAttribute('src').split('/')[4] + '");' + '</br>';
-     d++;
- }
- newW.document.write(s);
+//  for (var i = 0; i < a.length && d < 55; i++) {
+//      s += list_danh_muc[tl] + '[' + d + '] = new san_pham("' + list_danh_muc[tl] + d + '", ' + tl + ', "' + a[i].innerHTML + '", ' + Math.floor((Math.random() * 100) + (1)) + ', "image/' + list_danh_muc[tl] + '/' + b[d].getAttribute('src').split('/')[4] + '");' + '</br>';
+//      d++;
+//  }
+//  newW.document.write(s);
 // // 
 // // END.
 
