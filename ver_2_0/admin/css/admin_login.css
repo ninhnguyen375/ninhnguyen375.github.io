@@ -11,13 +11,13 @@
 
 @font-face {
     font-family: "opensans";
-    src: url('../fonts/Open_Sans/OpenSans-Bold.ttf');
+    src: url('../font/OpenSans-Bold.ttf');
     font-weight: bold;
 }
 
 @font-face {
     font-family: "opensans";
-    src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+    src: url('../font/OpenSans-Regular.ttf');
 }
 .wrapper{
     background: linear-gradient(to right,#6b56cb,#c550c0);
