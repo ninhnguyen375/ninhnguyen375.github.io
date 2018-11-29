@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Admin</title>
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<span class="title-header">ADMIN AREA</span>
+				<div class="nav-right">
+					<img src="image/icon/user-icon.svg">
+					<div class="ten-admin">Thanh - </div>
+					<a href="index.html"><div style="font-size: 15px;margin:17px 8px 0 8px">Đăng Xuất</div></a>
+				</div>
+			</div>
+			<div class="left-menu">
+				<a class="left-menu__item" href="admin.html"><span id="speed-icon"></span>Thống kê</a>
+				<a class="left-menu__item" href="qlsp.html"><span class="icon" id="product-icon"></span>Quản lý sản phẩm</a>
+				<a class="left-menu__item" href="qluser.html"><span class="icon" id="user-icon"></span>Quản lý User</a>
+				<a class="left-menu__item active" href="qldh.html"><span class="icon" id="don-hang-icon"></span>Quản lý đơn hàng</a>
+				<a class="left-menu__item" href="qldm.html"><span class="icon" id="danh-muc-icon"></span>Quản lý danh mục</a>
+				<div class="copyright">&copy World Phone 2018</div>
+			</div>
+			<div class="main">
+				<div class="breadcrumb">
+					<span>Home</span><span> / </span><span>Admin</span><span> / </span><span>Quản lý Đơn hàng</span>
+				</div>
+				<div class="section">
+					<table id="table-dh">
+						<thead>
+							<tr>
+								<th colspan="5">DANH SÁCH ĐƠN HÀNG</th>
+							</tr>
+							<tr>
+								<th colspan="3">Chọn ngày
+                                    <input type="date"><span> - </span><input type="date">
+								</th>
+								<th colspan="2">Trạng thái
+                                    <select>
+                                        <option value="">Đã giao</option>
+                                        <option value="">Chưa giao</option>
+                                        <option value="">Chưa liên lạc</option>
+                                    </select>
+								</th>
+							</tr>
+							<tr>
+								<th>STT</th>
+								<th>Khách Hàng</th>
+								<th>Thời Điểm Đặt Hàng</th>
+								<th>Tổng Tiền</th>
+								<th>Tình Trạng</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- <tr>
+								<td>1</td>
+								<td>Nguyễn An Ninh</td>
+								<td>25/07/2015</td>
+								<td>item 4</td>
+								<td>item 5</td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="js/all.js"></script>
+	</body>
+</html>
