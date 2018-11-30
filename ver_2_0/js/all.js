@@ -560,7 +560,7 @@ function load_gio_hang() {
                         <p class="cart-brand">Thế giới ' + ten_danh_muc_sp[sp[masp].matl] + '</p>\
                         <div class="cart-btn">\
                             <span title="Xóa sản phẩm khỏi giỏ hàng" data-delete="' + box_index + '" class="delete-cart" id=""></span>\
-                            <span onclick="alert(\'Bạn đã thích 1 sản phẩm\')" title="I LOVE IT <3" id="heart-cart"></span>\
+                            <span onclick="alert(\'Bạn đã thích 1 sản phẩm\');this.style.backgroundImage=\'url(image/icon/heart_icon_red.png)\'" title="I LOVE IT <3" id="heart-cart"></span>\
                         </div>\
                     </div>\
                     <div class="cart-item-right">\
