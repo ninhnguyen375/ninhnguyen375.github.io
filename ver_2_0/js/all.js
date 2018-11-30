@@ -555,7 +555,7 @@ function load_gio_hang() {
             list_sp.innerHTML += '\
                 <div class="cart-item" id="' + box_index + '">\
                     <div class="cart-item-left">\
-                        <div  style="background-image: url(' + sp[masp].hinh + ')" class="cart-img" ></div>\
+                        <img  src="' + sp[masp].hinh + '" class="cart-img" >\
                         <a href="thong_tin_sp.html?' + key_for_url + '" class="cart-heading">' + sp[masp].tensp + '</a><br>\
                         <p class="cart-brand">Thế giới ' + ten_danh_muc_sp[sp[masp].matl] + '</p>\
                         <div class="cart-btn">\
