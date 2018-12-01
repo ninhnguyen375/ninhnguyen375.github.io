@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Admin</title>
+		<link rel="stylesheet" href="css/qldh.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
@@ -25,7 +26,7 @@
 			</div>
 			<div class="main">
 				<div class="breadcrumb">
-					<span>Home</span><span> / </span><span>Admin</span><span> / </span><span>Quản lý Đơn hàng</span>
+					<span><a href="../index.html">Home</a></span><span> / </span><span>Admin</span><span> / </span><span>Quản lý Đơn hàng</span>
 				</div>
 				<div class="section">
 					<table id="table-dh">
@@ -35,15 +36,15 @@
 							</tr>
 							<tr>
 								<th colspan="3">Chọn ngày
-                                    <input type="date"><span> - </span><input type="date">
+									<input type="date" value="2016-07-22"><span> - </span><input type="date" value="2019-07-22">
 								</th>
 								<th colspan="2">Trạng thái
-                                    <select>
-                                        <option value="">Đã giao</option>
-                                        <option value="">Chưa giao</option>
-                                        <option value="">Chưa liên lạc</option>
-                                        <option value="" selected>Tất cả</option>
-                                    </select>
+									<select id="trang_thai">
+										<option value="Đã giao">Đã giao</option>
+										<option value="Chưa giao">Chưa giao</option>
+										<option value="Chưa liên lạc">Chưa liên lạc</option>
+										<option value="all" selected>Tất cả</option>
+									</select>
 								</th>
 							</tr>
 							<tr>
@@ -56,17 +57,40 @@
 						</thead>
 						<tbody>
 							<!-- <tr>
-								<td>1</td>
-								<td>Nguyễn An Ninh</td>
-								<td>25/07/2015</td>
-								<td>item 4</td>
-								<td>item 5</td>
+									<td>1</td>
+									<td>Nguyễn An Ninh</td>
+									<td>25/07/2015</td>
+									<td>item 4</td>
+									<td>item 5</td>
 							</tr> -->
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
+		<div class="popup-themsp">
+			<div class="popup-themsp__content">
+				<div class="popup-themsp__title">Chi Tiết Đơn Hàng</div>
+				<div class="popup-themsp-left">
+					<div class="popup-themsp-left__label">Khách hàng</div>
+					<div class="popup-themsp-left__label">Thời điểm đặt hàng</div>
+					<div class="popup-themsp-left__label">Iphone XS MAX</div>
+					<div class="popup-themsp-left__label">Tổng tiền</div>
+					<div class="popup-themsp-left__label">Tình trạng</div>
+				</div>
+				<div class="popup-themsp-right">
+					<div class="popup-themsp-left__input">xxx</div>
+					<div class="popup-themsp-left__input">xxx</div>
+					<div class="popup-themsp-left__input">xxx</div>
+					<div class="popup-themsp-left__input">xxx</div>
+					<div class="popup-themsp-left__input">xxx</div>
+				</div>
+				<span class="back" onclick="close_popup_themsp()">&times;</span>
+			</div>
+		</div>
+            <div class="footer">
+                <div>Powered by <a href="../index.html"> World Phone</a></div>
+            </div>
 		<script src="js/all.js"></script>
 	</body>
 </html>

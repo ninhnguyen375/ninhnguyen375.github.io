@@ -18,7 +18,7 @@ donhang[2] = new DonHang("Lê Văn Nhân", "20/09/2018", 300000, "Đã giao");
 donhang[3] = new DonHang("Nguyễn Văn Trọng", "29/11/2018", 2000000, "Chưa giao");
 donhang[4] = new DonHang("Trần Thị Nguyên", "20/03/2017", 18000000, "Đã giao");
 donhang[5] = new DonHang("Trần Công Văn", "20/03/2016", 35000000, "Chưa liên lạc");
-donhang[6] = new DonHang("Lý Nhân Từ", "100/02/2015", 35000000, "Đã giao");
+donhang[6] = new DonHang("Lý Nhân Từ", "10/02/2015", 35000000, "Đã giao");
 donhang[7] = new DonHang("Hậu Sĩ ", "20/03/2017", 55000000, "Chưa liên lạc");
 donhang[8] = new DonHang("Bùi Nhân Văn", "13/03/2017", 10000000, "Đã giao");
 donhang[9] = new DonHang("Lý thị Út", "25/03/2015", 11000000, "Chưa giao");
@@ -120,18 +120,19 @@ phone[9] = new san_pham("phone9", 0, "iPhone Xs Max 256GB", 43000000, "image/pho
 
 function load_don_hang() {
     var s = 0;
+    var stt = 1;
     for (var i = 0; i < donhang.length; i++) {
         s += donhang[i].tong_tien;
-        document.getElementById('table-dh').innerHTML += '\
+        document.getElementsByTagName("tbody")[0].innerHTML += '\
                             <tr>\
-                                <td>' + (i + 1) + '</td>\
+                                <td>' + (stt++) + '</td>\
                                 <td>' + donhang[i].khach_hang + '</td>\
                                 <td>' + donhang[i].thoi_diem + '</td>\
                                 <td>' + donhang[i].tong_tien + ' VND</td>\
                                 <td>' + donhang[i].tinh_trang + '</td>\
                             </tr>';
     }
-    document.getElementById('table-dh').innerHTML += '\
+    document.getElementsByTagName("tbody")[0].innerHTML += '\
                 <tr>\
                     <td colspan="5" style="color: red;background: white;text-align:right;padding-right:10px">Tổng tiền : ' + s + ' VND</td>\
                 </tr>';
@@ -197,6 +198,11 @@ window.onload = () => {
     url = window.location.href;
     if (url.indexOf('qldh') !== -1) {
         load_don_hang();
+        document.getElementById('trang_thai').onchange = function() {
+            load_trang_thai_don_hang(this.value);
+            xem_chi_tiet_hoa_don();
+        };
+        xem_chi_tiet_hoa_don();
     } else if (url.indexOf('qluser') !== -1) {
         load_quan_ly_user();
         xoa_user();
@@ -220,7 +226,11 @@ function popup_themsp() {
 
 function close_popup_themsp() {
     document.getElementsByClassName('popup-themsp')[0].style.display = 'none';
-    document.getElementsByClassName('popup-themsp')[1].style.display = 'none';
+    try {
+        document.getElementsByClassName('popup-themsp')[1].style.display = 'none';
+    } catch (e) {
+        console.log("Đang ở trang Quản lý Đơn Hàng");
+    }
 }
 //Thêm sự kiện cho nút sửa và xoá
 function them_xoa_sp() {
@@ -294,4 +304,48 @@ function xoa_user_i(e, i) {
             document.querySelectorAll('tbody tr')[i].style.display = 'none';
         }
     });
+}
+
+
+
+function load_trang_thai_don_hang(va) {
+    var s = 0;
+    var stt = 1;
+    document.getElementsByTagName("tbody")[0].innerHTML = "";
+    for (var i = 0; i < donhang.length; i++) {
+        if (va == donhang[i].tinh_trang || va == "all") {
+            s += donhang[i].tong_tien;
+            document.getElementsByTagName("tbody")[0].innerHTML += '\
+                            <tr>\
+                                <td>' + (stt++) + '</td>\
+                                <td>' + donhang[i].khach_hang + '</td>\
+                                <td>' + donhang[i].thoi_diem + '</td>\
+                                <td>' + donhang[i].tong_tien + ' VND</td>\
+                                <td>' + donhang[i].tinh_trang + '</td>\
+                            </tr>';
+        }
+    }
+    document.getElementsByTagName("tbody")[0].innerHTML += '\
+                <tr>\
+                    <td colspan="5" style="color: red;background: white;text-align:right;padding-right:10px">Tổng tiền : ' + s + ' VND</td>\
+                </tr>';
+}
+
+function xem_chi_tiet_hoa_don() {
+    var tr = document.querySelectorAll('tbody tr');
+    for (var i = 0; i < tr.length - 1; i++) {
+        load_chi_tiet_hoa_don(i, tr[i]);
+    }
+}
+
+function load_chi_tiet_hoa_don(i, e) {
+    e.onclick = () => {
+        document.getElementsByClassName('popup-themsp')[0].style.display = "block";
+        console.log(donhang[i].khach_hang);
+        document.getElementsByClassName('popup-themsp-left__input')[0].innerHTML = donhang[i].khach_hang;
+        document.getElementsByClassName('popup-themsp-left__input')[1].innerHTML = donhang[i].thoi_diem;
+        document.getElementsByClassName('popup-themsp-left__input')[2].innerHTML = donhang[i].tong_tien;
+        document.getElementsByClassName('popup-themsp-left__input')[3].innerHTML = donhang[i].tong_tien;
+        document.getElementsByClassName('popup-themsp-left__input')[4].innerHTML = donhang[i].tinh_trang;
+    }
 }
