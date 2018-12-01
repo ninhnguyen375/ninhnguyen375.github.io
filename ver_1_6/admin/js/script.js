@@ -4,12 +4,14 @@ function DonHang(khach_hang, thoi_diem, tong_tien, tinh_trang) {
     this.tong_tien = tong_tien;
     this.tinh_trang = tinh_trang;
 }
+
 function TheLoai(khach_hang, thoi_diem, tong_tien, tinh_trang) {
     this.khach_hang = khach_hang;
     this.thoi_diem = thoi_diem;
     this.tong_tien = tong_tien;
     this.tinh_trang = tinh_trang;
 }
+
 function QuanLy(khach_hang, thoi_diem, tong_tien, tinh_trang) {
     this.khach_hang = khach_hang;
     this.thoi_diem = thoi_diem;
@@ -18,16 +20,8 @@ function QuanLy(khach_hang, thoi_diem, tong_tien, tinh_trang) {
 }
 var donhang = new Array();
 for (var i = 0; i < 10; i++) {
-    donhang[i] = new DonHang('nguyen van b '+i,'22/08/2008',200000000,'chua giao');
+    donhang[i] = new DonHang('nguyen van b ' + i, '22/08/2008', 200000000, 'chua giao');
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -115,19 +109,18 @@ function xoa_mot_the_loai(e, i) {
 
 function load_don_hang() {
     for (var i = 0; i < donhang.length; i++) {
-        if(i%2==0){
+        if (i % 2 == 0) {
             document.getElementsByClassName('table_ql_don_hang')[0].innerHTML += '\
                     <tr style="background : #EAEAEA">\
-                        <td>'+donhang[i].khach_hang+'</td>\
+                        <td>' + donhang[i].khach_hang + '</td>\
                         <td>25/5/2016</td>\
                         <td>200.000.000đ</td>\
                         <td>Chưa giao</td>\
                     </tr>';
-        }
-        else{
+        } else {
             document.getElementsByClassName('table_ql_don_hang')[0].innerHTML += '\
                     <tr>\
-                        <td>'+donhang[i].khach_hang+'</td>\
+                        <td>' + donhang[i].khach_hang + '</td>\
                         <td>25/5/2016</td>\
                         <td>200.000.000đ</td>\
                         <td>Chưa giao</td>\
@@ -147,13 +140,13 @@ window.addEventListener('load', function() {
         load_product();
         xoa_item();
     }
-    if(url.indexOf('the_loai.html') != -1){
+    if (url.indexOf('the_loai.html') != -1) {
         xoa_the_loai();
     }
-    if(url.indexOf('quan_ly.html') != -1){
+    if (url.indexOf('quan_ly.html') != -1) {
         xoa_the_loai();
     }
-    if(url.indexOf('don_hang.html') != -1){
+    if (url.indexOf('don_hang.html') != -1) {
         load_don_hang();
     }
 })
