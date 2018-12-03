@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: opensans;
+}
+@font-face {
+  font-family: "opensans";
+  src: url('../fonts/Open_Sans/OpenSans-Bold.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: "opensans";
+  src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+
+.clear_both {
+  clear: both;
+}
+
+.wrapper {
+  width: 1345px;
+  margin: 0 auto;
+}
+.hidden{
+  display: none;
+}
+html {
+  scroll-behavior: smooth;
+  transition: 5s;
+  transition-timing-function: linear;
+}
+#thong-bao-dang-nhap{
+	display: none;
+	background: rgba(0,0,0,0.90);
+	position: fixed;
+	top: 0;
+	z-index: 20;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	padding-top: 50px;
+}
+#yes,#no{
+	padding: 10px;
+	width: 150px;
+	background: none;
+	color: white;
+	font-size: 16px;
+	border: 1px solid white;
+	transition: 0.3s;
+}
+#yes:hover{
+	background: white;
+	color: black;
+}
+#no:hover{
+	background: white;
+	color: black;
+}
+
+
+
+/* cho màn 1280px */
+@media (max-width: 1281px) {
+  .wrapper{
+    width: 1260px;
+  }
+  .khung_sp_header{
+    width: 1000px;
+  }
+  .long_hr{
+    width: 300px;
+  }
+  .khung_sp{
+    width: 1000px;
+  }
+  .left_menu {
+    width: 230px;
+  }
+  .search_and_cart{
+    width: 960px;
+  }
+  .nav_wrap{
+    width: 939px;
+  }
+  .nav_wrap a{
+    margin-right: 0;
+  }
+  .banner{
+    width: 1260px;
+    margin: 30px auto;
+  }
+}
+
+input{
+    outline: none;
+}
+select{
+    outline: none;
+}
+
+
+/*
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: #ff9a00;
+}
+*/
+
+
+
+
+.scroll_to_top {
+    display: none;
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    width: 50px;
+    height: 50px;
+    background: #ff6005;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: 100;
+}
+.scroll_to_top:hover{
+    background:#ff6005 ;
+    opacity: 1;
+}
+
+.scroll_btn {
+    top: 12px;
+    left: 10px;
+    position: absolute;
+    width: 30px;
+    clip-path: polygon(50% 0%, 100% 49%, 80% 69%, 51% 39%, 23% 69%, 0 49%);
+    height: 30px;
+    background: white;
+    transition: 0.3s;
+}
+.scroll_to_top:hover .scroll_btn{
+    top: 5px;
+}
+.cart-item{
+    position: relative;
+}
+.cart-btn{
+    position: absolute;
+    right: 150px;
+    top: 85px;
+}
+
+
+
+
+

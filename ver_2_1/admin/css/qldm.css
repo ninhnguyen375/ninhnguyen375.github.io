@@ -1,0 +1,150 @@
+#table-dm{
+	width: 96%;
+	border-collapse: collapse;
+	border: 1px solid #c8ced3;
+	background: white;
+	border-spacing: 2px;
+	margin: 20px auto;
+}
+
+#table-dm thead tr{
+	background: #E4E5E6;
+	height: 40px;
+	color: #5C6873;
+	border-bottom: 2px solid #C8CED3;
+}
+#table-dm tbody td{
+	height: 35px;
+	border-bottom: 1px solid #C8CED3;
+}
+#table-dm tbody tr:hover{
+	background: #F3F3F3;
+	cursor: pointer;
+}
+#table-dm tbody td{
+	text-align: center;
+}
+/*#table-dm tbody td:nth-child(2){
+	padding: 10px; 
+}
+#table-dm tbody td:nth-child(3){
+	width: 212px;
+}*/
+.xoa_sp,.sua_sp{
+	height: 33px;
+	width: 65px;
+	background: white;
+	color: gray;
+	border: 1px solid #C8CED3;
+	margin: 3px;
+	transition: 0.3s;
+}
+.xoa_sp:hover,.sua_sp:hover{
+	background: #2F353A ;
+	border: 1px solid #2F353A;
+	color: white;
+}
+/*#table-dm tbody td:first-child,th:first-child{
+	width: 66px;
+	text-align: right;
+}*/
+.them-sp{
+	text-align: right;
+	margin-right: 20px;
+}
+.them-sp button{
+	background: white;
+	border: 2px solid  #C8CED3;
+	color: #2F353A;
+	padding:10px;
+	transition: 0.3s
+}
+.them-sp button:hover{
+	background: #2F353A ;
+	border: 2px solid #2F353A;
+	color: white;
+}
+
+/*popup*/
+.popup-themsp{
+	display: none;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 5;
+}
+.popup-themsp__content{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: white;
+	width: 500px;
+	height: 370px;
+	transform: translate(-50%,-50%);
+	border-radius: 15px;
+}
+.popup-themsp__title{
+	text-align: center;
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.popup-themsp-left{
+	float: left;
+	width: 45%;
+	text-align: right;
+}
+.popup-themsp-right{
+	float: right;
+	width: 50%;
+}
+.popup-themsp-left__label,.popup-themsp-left__input{
+	margin-top: 20px;
+	height: 35px;
+}
+.popup-themsp-left__input input{
+	border:0;
+	margin-top: 0;
+	border-bottom: 2px solid #CBCBCB;
+	/*width: 275px;*/
+	padding: 0 0 5px  5px;
+	text-indent: 5px;
+}
+input[type=checkbox]{
+	margin-left: 10px;
+}
+.popup-themsp__btn{
+	position: absolute;
+	bottom: 20px;
+	background: #2FB016;
+	border: 1px solid #CBCBCB;
+	padding: 10px;
+	width: 100px;
+	color: white;
+	left: 44%;
+	transition: 0.3s;
+	border-radius: 10px;
+}
+.popup-themsp__btn:hover{
+	background: #3B872C;
+}
+.back{
+	position: absolute;
+	top: 5px;
+	right: 20px;
+	font-size: 35px;
+	color: gray;
+}
+.back:hover{
+	cursor: pointer;
+	color: red;
+	text-shadow: 0px 0 3px red;
+}
+.sua-hinh{
+	position: absolute;
+	top: 72px;
+	left: 72px;
+}

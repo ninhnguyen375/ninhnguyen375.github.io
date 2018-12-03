@@ -1,0 +1,76 @@
+@charset "utf-8";
+.dangnhap{
+	width: 800px;
+	padding: 20px 20px 20px 20px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	overflow: auto;
+}
+.dangnhap-l{
+	width: 350px;
+	float: left;
+	padding: 10px;
+}
+.login{
+	width: 300px;
+	height: 40px;
+	text-indent: 10px;
+	border-radius: 10px;
+	border: 1px solid rgb(193, 193, 193);
+}
+.submit{
+	width: 350px;
+	height: 42px;
+	background: #FF8B00;
+	border-radius: 8px;
+	color: #FFFFFF;
+	border: none;
+
+}
+.submit:hover{
+	background:#FFC339;
+	transition-duration: 0.5s;
+}
+.dangky{
+	text-decoration: none;
+	color: #000000;
+	text-align: right;
+}
+.quenmk{
+	text-decoration: none;
+	color: #4390FC;
+}
+.font-login{
+	font-size: 14px;
+	margin: 10px 0 5px 0;
+	color: rgb(121, 121, 121);
+}
+.login-fb{
+	width: 350px;
+	height: 40px;
+	background:  #3b5998;
+	border-radius: 8px;
+	color: #FFFFFF;
+	border: none;
+	transition: 0.3s;
+}
+.login-fb:hover,.login-g:hover{
+	opacity: 0.7;
+}
+.login-g{
+	width: 350px;
+	height: 40px;
+	background: #d34836;
+	border-radius: 8px;
+	color: aliceblue;
+	border: none;
+	transition: 0.3s;
+}
+.login-last{
+	font-size: 12px;
+	color: red;
+}
+.item-login{
+	float: left;
+	padding: 5px;
+}
