@@ -1,0 +1,88 @@
+
+/*Admin login*/
+* {
+    margin: 0;
+    padding: 0;
+    /*overflow: auto;*/
+    font-size: 16px;
+    font-family: opensans;
+    outline: none;
+}
+
+@font-face {
+    font-family: "opensans";
+    src: url('../font/OpenSans-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "opensans";
+    src: url('../font/OpenSans-Regular.ttf');
+}
+.wrapper{
+    background: linear-gradient(to right,#6b56cb,#c550c0);
+    height: 100vh;
+    position: relative;
+}
+.content{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height: 420px;
+	width: 800px;
+	background: white;
+	border-radius: 25px;
+}
+.content-left{
+	float: left;
+	width: 358px;
+	height: 100%;
+	background: url(../image/img-01.png);
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 230px;
+}
+.content-right{
+	position: absolute;
+	float: right;
+	width: auto;
+	height: auto;
+	top: 100px;
+	right: 150px;
+}
+img{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+
+}
+h1{
+	font-size: 20px;
+	text-align: center;
+	color: gray;
+}
+input,button{
+	width: 210px;
+	height: 35px;
+	margin: 5px;
+	border: 0;
+}
+input{
+	border-bottom: 2px solid #D8D8D8;
+	font-size: 14px;
+}
+input:first-of-type{
+	margin-top: 35px;
+	/*display: block;*/
+}
+button{
+	background: #57b846;
+	color: white;
+	border-radius: 10px;
+	margin-top: 30px;
+	transition: 0.3s;
+}
+button:hover{
+	background: #2E7116;
+}
