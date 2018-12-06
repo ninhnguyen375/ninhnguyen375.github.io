@@ -22,7 +22,7 @@
 
 }
 .sua_thanh_cong{
-	animation: success linear; 
+	animation: success linear;
 	animation-duration: 2s;
 }
 @keyframes success{

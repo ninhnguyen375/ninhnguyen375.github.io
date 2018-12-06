@@ -500,6 +500,30 @@ function them_danh_muc() {
     document.documentElement.scrollTop = '10000';
 }
 
+function them_mot_sp() {
+    var input = document.querySelectorAll('.popup-themsp__content .them-mot-sp');
+    var tr = document.querySelectorAll('tbody tr');
+
+    document.getElementById('table-sp').innerHTML += '\
+                    <tr class="sua_thanh_cong">\
+                        <td>' + (tr.length + 1) + '</td>\
+                        <td><img src="../image/phone/' + input[3].value.split('\\')[2] + '" width = "110px"></td>\
+                        <td>' + input[0].value + '</td>\
+                        <td>' + input[1].value + '</td>\
+                        <td>' + input[4].value + '</td>\
+                        <td>' + input[2].value + '</td>\
+                        <td>' + input[5].value + '</td>\
+                        <td>\
+                            <button class="xoa_sp">Xóa</button><br>\
+                            <button class="sua_sp">Sửa</button>\
+                        </td>\
+                    </tr>';
+    document.getElementsByClassName('back')[0].click();
+    document.documentElement.scrollTop = '10000';
+
+
+}
+
 function them_thong_tin_sua_dm(e, i) {
     e.addEventListener('click', function() {
         document.getElementsByClassName('popup-themsp')[1].style.display = 'block';
